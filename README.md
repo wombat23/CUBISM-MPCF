@@ -8,6 +8,24 @@ Please cite:
 
 
 ==========================
-AIM week 
+# AIM week 
 
-1) Initial Conditions parameters :
+# 1 Initial Conditions parameters :
+  * Box size 
+  * Initial T = 300 K
+  * Initial Pressure (p) = 1 bar
+  * T_s_m
+  * T_s_e
+  * I - current = 1250000 A
+  * U = 240 V
+  * V_arc + arc box
+  * gamma = 1.4
+  * flap area
+    * rho_flap
+    * s_flap
+    * L_flap
+  * zeta_grid = 0.219
+  * threshold_pressure = 6000 Pa
+  
+
+  
