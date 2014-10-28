@@ -119,7 +119,8 @@ protected:
     bool bAwk;
     
     Real _computeSOS(bool bAwk=false);
-    
+    Real _computeFLAP();
+
     ArgumentParser parser;
     Profiler * profiler;
     

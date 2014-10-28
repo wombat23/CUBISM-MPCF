@@ -7,13 +7,15 @@
  *
  */
 #pragma once
+#include "Test_Flap.h"
+typedef BlockLabFlap<FluidBlock, std::allocator> Lab;
 
 //#include "Test_ShockTube.h"
 //typedef BlockLab<FluidBlock, std::allocator> Lab;
 
-#include "Test_ShockBubble.h"
+//#include "Test_ShockBubble.h"
 //typedef BlockLab<FluidBlock, std::allocator> Lab;
-typedef BlockLabBubble<FluidBlock, std::allocator> Lab;
+//typedef BlockLabBubble<FluidBlock, std::allocator> Lab;
 
 //#include "Test_SIC.h"
 //maybe replace it with std::allocator

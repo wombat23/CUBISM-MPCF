@@ -35,6 +35,9 @@ public:
 	void setup();
 };
 
+static Real phi=0, dphidt=0;
+static Real t_current=0;
+
 template<typename BlockType, template<typename X> class allocator=std::allocator>
 class BlockLabFlap: public BlockLab<BlockType,allocator>
 {		
@@ -50,29 +53,25 @@ public:
 	
 	void _apply_bc(const BlockInfo& info, const Real t=0)
 	{	
+        const Real dt = t-t_current;
+        t_current = t;
+
+        const Real pAvg = 1;
+        const Real rAvg = 1;
+        const Real uAvg = 0;
+        const Real gamma = 1.4;
+
         BoundaryCondition<BlockType,ElementTypeBlock,allocator> bc(this->m_stencilStart, this->m_stencilEnd, this->m_cacheBlock);
         
-        if (info.index[0]==0)           bc.template applyBC_absorbing_better_faces<0,0>();		
-        if (info.index[0]==this->NX-1)  bc.template applyBC_absorbing_better_faces<0,1>();
-        if (info.index[1]==0)			bc.template applyBC_absorbing_better_faces<1,0>();
-        if (info.index[1]==this->NY-1)	bc.template applyBC_absorbing_better_faces<1,1>();
+        if (info.index[0]==0)           bc.template applyBC_reflecting<0,0>();
+        if (info.index[0]==this->NX-1)  bc.template applyBC_reflecting<0,1>();	
+//        if (info.index[0]==this->NX-1)  bc.template applyBC_flap<0,1>(pAvg,rAvg,uAvg,dt,gamma,phi,dphidt);
+        if (info.index[1]==0)			bc.template applyBC_reflecting<1,0>();
+        if (info.index[1]==this->NY-1)	bc.template applyBC_reflecting<1,1>();
         if (info.index[2]==0)			bc.template applyBC_reflecting<2,0>();
-		//bc.template applyBC_absorbing_better_faces<2,0>();
-        if (info.index[2]==this->NZ-1)	bc.template applyBC_absorbing_better_faces<2,1>();
+        if (info.index[2]==this->NZ-1)	bc.template applyBC_reflecting<2,1>();
         
-        const bool bEdgeXY = (info.index[0]==0 || info.index[0]==this->NX-1) && (info.index[1]==0 || info.index[1]==this->NY-1);
-        const bool bEdgeYZ = (info.index[1]==0 || info.index[1]==this->NY-1) && (info.index[2]==0 || info.index[2]==this->NZ-1);
-        const bool bEdgeZX = (info.index[2]==0 || info.index[2]==this->NZ-1) && (info.index[0]==0 || info.index[0]==this->NX-1);
         
-        const bool bCorner = (info.index[0]==0 || info.index[0]==this->NX-1) && (info.index[1]==0 || info.index[1]==this->NY-1) && (info.index[2]==0 || info.index[2]==this->NZ-1);
         
-        if (this->istensorial)
-        {
-            if (bEdgeXY || bEdgeYZ || bEdgeZX && !bCorner) 
-                bc.applyBC_absorbing_better_tensorials_edges();
-            
-            if (bCorner)
-                bc.applyBC_absorbing_better_tensorials_corners();
         }
-    }
 };
