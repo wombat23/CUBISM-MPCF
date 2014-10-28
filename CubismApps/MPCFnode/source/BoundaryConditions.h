@@ -230,4 +230,46 @@ public:
                     (*this)(ix,iy,iz).energy = p.energy;
 				}
 	}
+
+    template<int dir, int side>
+    void applyBC_flap(const Real pAvg, const Real rAvg, const Real uAvg, const Real dt, const Real gamma, Real & phi, Real & dphidt)
+    {
+        // constants
+        const Real zGrid = 0.219;
+        const Real rFlap = 3500; // [kg/m^3]
+        const Real sFlap = .0022; // [m]
+        const Real lFlap = 0.85; // [m]
+
+        const Real pMid = pAvg - zGrid * 0.5 * rAvg * uAvg*uAvg;
+
+        const Real rMid = rAvg*rAvg * uAvg*uAvg / (pAvg - pMid + rAvg * uAvg*uAvg);
+        const Real uMid = rAvg * uAvg / rMid;
+
+        Real zFlap = 0;
+        if (phi<M_PI/2)
+        {
+            zFlap = pow(2,10) * (pow(phi,-7)-pow(M_PI*.5,-7));
+            zFlap = zFlap>pow(2,15) ? pow(2,15) : zFlap;
+            const Real ddphiddt = 3./(4.* rFlap * sFlap * lFlap) * rMid * uMid * zFlap;
+            dphidt += dt * ddphiddt;
+            phi += dt * dphidt;
+        }
+
+        const Real pOut = pMid - zFlap * rMid * uMid*uMid * .5;
+
+        _setup<dir,side>();
+
+        for(int iz=s[2]; iz<e[2]; iz++)
+            for(int iy=s[1]; iy<e[1]; iy++)
+                for(int ix=s[0]; ix<e[0]; ix++)
+                {
+                    (*this)(ix,iy,iz).rho    = rMid;
+                    (*this)(ix,iy,iz).u      = uMid;
+                    (*this)(ix,iy,iz).v      = 0;
+                    (*this)(ix,iy,iz).w      = 0;
+                    (*this)(ix,iy,iz).G      = 0;
+                    (*this)(ix,iy,iz).P      = 0;
+                    (*this)(ix,iy,iz).energy = (0.5* rMid * uMid*uMid + pMid)/gamma;
+                }
+    }
 };
