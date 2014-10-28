@@ -326,17 +326,17 @@ void Test_Flap::_setup_constants()
     
     parser.unset_strict_mode();
     
-    pOutside = parser("-pOutside").asDouble(100000);
-    pCrit = parser("-pCrit").asDouble(6000);
+    pOutside = parser("-pOutside").asDouble(100000); // pressure outside of the box
+    pCrit = parser("-pCrit").asDouble(6000); // pOut - pInsid > pCrit - open the flap
     TInit = parser("-tInit").asDouble(300);
     
-    tSM  = parser("-tSM").asDouble(0.015);
+    tSM  = parser("-tSM").asDouble(0.015); // time values for the functions of state
     tSE  = parser("-tSE").asDouble(0.015);
     
-    iI   = parser("-iI").asDouble(1250000);
-    iU   = parser("-iU").asDouble(240);
+    iI   = parser("-iI").asDouble(1250000); // arc current
+    iU   = parser("-iU").asDouble(240); // arc voltage
     
-    arcX = parser("-arcX").asDouble(0.1);
+    arcX = parser("-arcX").asDouble(0.1); // position of source
     arcY = parser("-arcY").asDouble(arcX);
     arcZ = parser("-arcZ").asDouble(arcX);
     
@@ -358,11 +358,11 @@ void Test_Flap::_setup_constants()
     Simulation_Environment::GAMMA1 = parser("-g1").asDouble(1.4);
     Simulation_Environment::GAMMA2 = parser("-g2").asDouble(1.4);
     
-    bVP = parser("-vp").asBool(0);
-    VERBOSITY = parser("-verb").asInt(0);
+    bVP = parser("-vp").asBool(0); // for visualization
+    VERBOSITY = parser("-verb").asInt(0); // make additional output
     NSTEPS = parser("-nsteps").asInt(0);
-    bAWK = parser("-awk").asBool(false);
-    ANALYSISPERIOD = parser("-analysisperiod").asInt(std::numeric_limits<int>::max());
+    bAWK = parser("-awk").asBool(false); // ??
+    ANALYSISPERIOD = parser("-analysisperiod").asInt(std::numeric_limits<int>::max()); // some stuff for output
     
     assert(TEND >= 0.0);
     assert(BPDX >= 1);
