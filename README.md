@@ -28,4 +28,8 @@ Please cite:
   * threshold_pressure = 6000 Pa
   
 
+# 1.2  Parameters to executable
+```
+app -sim flap -tend 10 -dumpperiod 10 -saveperiod 10 -cfl 1 -bpdx 100 -bpdz 1 -pOutside 100000 -pCrit 6000 -tInit 300 -tSM 0.015 -tSE 0.015 -iI 1250000 -iU 240 -arcX 0.1 -arcWidth 0.1 -zetaGrid 0.219 -threshP 6000  -flRho 3500 -flS 0.022 -flL 0.850 -g1 1.4 -verb 0 -nsteps 100
+```
   

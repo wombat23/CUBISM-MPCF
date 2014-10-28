@@ -30,7 +30,7 @@ void Test_Flap::_ic(FluidGrid& grid)
     const double G2 = Simulation_Environment::GAMMA2-1;
     const double F1 = Simulation_Environment::GAMMA1*Simulation_Environment::PC1;
     const double F2 = Simulation_Environment::GAMMA2*Simulation_Environment::PC2;
-    
+    printf("----> %f",pInit / TInit / R_star);
 #pragma omp parallel
 	{	
 #ifdef _USE_NUMA_
@@ -38,7 +38,7 @@ void Test_Flap::_ic(FluidGrid& grid)
 		const int mynode = omp_get_thread_num() / cores_per_node;
 		numa_run_on_node(mynode);
 #endif
-		
+
 #pragma omp for
 		for(int i=0; i<(int)vInfo.size(); i++)
 		{
@@ -49,25 +49,19 @@ void Test_Flap::_ic(FluidGrid& grid)
                 for(int iy=0; iy<FluidBlock::sizeY; iy++)
                     for(int ix=0; ix<FluidBlock::sizeX; ix++)
                     {
-                        Real p[3], post_shock[3];
+                        Real p[3];
                         info.pos(p, ix, iy, iz);
-                        
-                        b(ix, iy, iz).v        = 0;
-                        b(ix, iy, iz).w        = 0;
-                        /*
-                                                const Real pre_shock[3] = {0.125,0,0.1};//{10,0.5,1/1.4};//{0.125,0,0.1};//{10,0.5,1/1.4};//
-                         Simulation_Environment::getPostShockRatio(pre_shock, Simulation_Environment::mach, Simulation_Environment::GAMMA1, Simulation_Environment::PC1, post_shock);
-                         const double shock = bubble;//Simulation_Environment::heaviside_smooth(p[0]-Simulation_Environment::shock_pos);
-                         
-                        post_shock[0] = 1;//1;//1;//1;
-                        post_shock[1] = 0;//0.5;//0;//0.5;
-                        post_shock[2] = 1;//1/1.4;//1;//1/1.4;
-                         
-                         b(ix, iy, iz).rho      = shock*post_shock[0] + (1-shock)*(1*bubble+pre_shock[0]*(1-bubble));
-                         b(ix, iy, iz).u        = 0;//(shock*post_shock[1] + (1-shock)*pre_shock[1])*b(ix, iy, iz).rho;
-                        b(ix, iy, iz).v        = 0;//0.5*b(ix, iy, iz).rho;
-                         b(ix, iy, iz).w        = 0;*/
-                        
+
+
+												b(ix, iy, iz).rho      = pInit / TInit / R_star;
+												b(ix, iy, iz).u        = 0.0;                        
+												b(ix, iy, iz).v        = 0.0;
+												b(ix, iy, iz).w        = 0.0;
+												b(ix, iy, iz).energy   = 0.5*(b(ix, iy, iz).u*b(ix, iy, iz).u
+															+ b(ix, iy, iz).v*b(ix, iy, iz).v
+															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + (gamma-1)*pInit;
+												b(ix, iy, iz).G        = 1.0/(gamma-1.0);
+												b(ix, iy, iz).P        = 0.0;
                     }
         }		
 	}	
@@ -313,10 +307,70 @@ void Test_Flap::run()
 
 void Test_Flap::_setup_constants()
 {
-	Test_SteadyState::_setup_constants();
-	
-	parser.set_strict_mode();
-	parser.unset_strict_mode();
+    parser.mute();
+    
+    bRESTART = parser("-restart").asBool();
+    
+    parser.set_strict_mode();
+    TEND = parser("-tend").asDouble();
+    DUMPPERIOD = parser("-dumpperiod").asInt();
+    SAVEPERIOD = parser("-saveperiod").asInt();
+    CFL = parser("-cfl").asDouble();
+    BPDX = parser("-bpdx").asInt();
+    
+    parser.unset_strict_mode();
+    
+    pInit = parser("-pInit").asDouble(100000);
+    pCrit = parser("-pCrit").asDouble(6000);
+    TInit = parser("-tInit").asDouble(300);
+    
+    tSM  = parser("-tSM").asDouble(0.015);
+    tSE  = parser("-tSE").asDouble(0.015);
+    
+    iI   = parser("-iI").asDouble(1250000);
+    iU   = parser("-iU").asDouble(240);
+    
+    arcX = parser("-arcX").asDouble(0.1);
+    arcY = parser("-arcY").asDouble(arcX);
+    arcZ = parser("-arcZ").asDouble(arcX);
+    
+    arcWidth = parser("-arcWidth").asDouble(0.1);
+    arcHeight = parser("-arcHeight").asDouble(arcWidth);
+    
+    zetaGrid = parser("-zetaGrid").asDouble(0.219);
+    threshP  = parser("-threshP").asDouble(6000);
+    
+    flRho = parser("-flRho").asDouble(3500);
+    flS   = parser("-flS").asDouble(0.022);
+    flL   = parser("-flL").asDouble(0.850);
+
+		gamma   = parser("-gamma").asDouble(1.4);
+		R_star  = parser("-Rstar").asDouble(287); // k_Boltzman/molecular weight of air
+
+    bASCIIFILES = parser("-ascii").asBool(false);
+
+    BPDY = parser("-bpdy").asInt(BPDX);
+    BPDZ = parser("-bpdz").asInt(BPDX);
+    
+    Simulation_Environment::GAMMA1 = parser("-g1").asDouble(1.4);
+    Simulation_Environment::GAMMA2 = parser("-g2").asDouble(1.4);
+    
+    bVP = parser("-vp").asBool(0);
+    VERBOSITY = parser("-verb").asInt(0);
+    NSTEPS = parser("-nsteps").asInt(0);
+    bAWK = parser("-awk").asBool(false);
+    ANALYSISPERIOD = parser("-analysisperiod").asInt(std::numeric_limits<int>::max());
+    
+    assert(TEND >= 0.0);
+    assert(BPDX >= 1);
+    assert(BPDY >= 1);
+    assert(BPDZ >= 1);
+    assert(DUMPPERIOD > 0);
+    assert(CFL > 0 && CFL<1);
+    
+    Simulation_Environment::PC1 = parser("-pc1").asDouble(0);
+    Simulation_Environment::PC2 = parser("-pc2").asDouble(0);
+    REPORT_FREQ = parser("-report").asInt(10);
 }
 
 void Test_Flap::setup()

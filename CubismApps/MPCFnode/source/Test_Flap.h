@@ -15,8 +15,14 @@ class Test_Flap: public Test_SteadyState
     void _ic(FluidGrid& grid);
     
 protected:
-	Real pCrit;
-	Real pAmbient, tAmbient; 
+	Real pCrit,    pInit;
+	Real pAmbient, tAmbient;
+    Real TInit;
+    Real tSM, tSE, iI, iU;
+    Real arcX,arcY,arcZ, arcWidth, arcHeight;
+    Real zetaGrid, threshP, flRho, flS, flL;
+		Real gamma, R_star;
+    
 
     void _setup_constants();
     void _dumpStatistics(FluidGrid& grid, const int counter, const Real t, const Real dt);
@@ -57,8 +63,9 @@ public:
 
         BoundaryCondition<BlockType,ElementTypeBlock,allocator> bc(this->m_stencilStart, this->m_stencilEnd, this->m_cacheBlock);
         
-        if (info.index[0]==0)           bc.template applyBC_reflecting<0,0>();		
-        if (info.index[0]==this->NX-1)  bc.template applyBC_flap<0,1>(pAvg,rAvg,uAvg,dt,gamma,phi,dphidt);
+        if (info.index[0]==0)           bc.template applyBC_reflecting<0,0>();
+        if (info.index[0]==this->NX-1)  bc.template applyBC_reflecting<0,1>();	
+//        if (info.index[0]==this->NX-1)  bc.template applyBC_flap<0,1>(pAvg,rAvg,uAvg,dt,gamma,phi,dphidt);
         if (info.index[1]==0)			bc.template applyBC_reflecting<1,0>();
         if (info.index[1]==this->NY-1)	bc.template applyBC_reflecting<1,1>();
         if (info.index[2]==0)			bc.template applyBC_reflecting<2,0>();
