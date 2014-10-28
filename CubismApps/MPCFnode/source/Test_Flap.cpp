@@ -318,7 +318,6 @@ void Test_Flap::_setup_constants()
     bRESTART = parser("-restart").asBool();
     
     parser.set_strict_mode();
-    
     TEND = parser("-tend").asDouble();
     DUMPPERIOD = parser("-dumpperiod").asInt();
     SAVEPERIOD = parser("-saveperiod").asInt();
@@ -371,7 +370,6 @@ void Test_Flap::_setup_constants()
     assert(BPDZ >= 1);
     assert(DUMPPERIOD > 0);
     assert(CFL > 0 && CFL<1);
-    assert(MOLLFACTOR > 0);
     
     Simulation_Environment::PC1 = parser("-pc1").asDouble(0);
     Simulation_Environment::PC2 = parser("-pc2").asDouble(0);

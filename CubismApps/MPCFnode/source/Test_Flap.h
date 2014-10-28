@@ -20,7 +20,8 @@ protected:
     Real TInit;
     Real tSM, tSE, iI, iU;
     Real arcX,arcY,arcZ, arcWidth, arcHeight;
-    Real zetaGrid, thresP, flRho, flS, flL;
+    Real zetaGrid, threshP, flRho, flS, flL;
+    
 
     void _setup_constants();
     void _dumpStatistics(FluidGrid& grid, const int counter, const Real t, const Real dt);
