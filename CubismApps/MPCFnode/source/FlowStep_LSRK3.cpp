@@ -34,6 +34,7 @@
 
 #include <Update.h>
 #include <MaxSpeedOfSound.h>
+#include <Flap_average.h>
 
 #ifdef _USE_HPM_
 #include <mpi.h>
@@ -292,6 +293,69 @@ Real FlowStep_LSRK3::_computeSOS(bool bAwk)
     return sos;
 }
 
+template < typename TFLAP>
+Real _computeFLAP(FluidGrid& grid)
+{
+    vector<BlockInfo> vInfo = grid.getBlocksInfo();
+    const int N = vInfo.size();
+    const BlockInfo * const ary = &vInfo.front();
+
+    Real global_rAvg = 0;
+    Real global_pAvg = 0;
+    Real global_uAvg = 0;
+    Real global_tAvg = 0;
+ 	int global_n = 0;
+
+
+#pragma omp parallel
+    {
+      TFLAP kernel;
+      
+#pragma omp for schedule(runtime) reduction(+:global_rAvg) reduction(+:global_pAvg) reduction(+:global_uAvg) reduction(+:global_tAvg) reduction(+:global_n) 
+
+        for (size_t i=0; i<N; ++i)
+        {
+            FluidBlock & block = *(FluidBlock *)ary[i].ptrBlock;
+            kernel.compute(&block.data[0][0][0].rho, FluidBlock::gptfloats, global_pAvg, global_rAvg, global_uAvg, global_tAvg, global_n, grid.getBlocksPerDimension(0),vInfo[i].index[0]);
+        }
+    }
+    
+    global_rAvg /= global_n;
+    global_pAvg /= global_n;
+    global_uAvg /= global_n;
+    global_tAvg /= global_n;
+	return global_pAvg;
+}
+
+Real FlowStep_LSRK3::_computeFLAP()
+{
+    Real sos = -1;
+	
+    const string kernels = parser("-kernels").asString("cpp");
+    vector<BlockInfo> vInfo = grid.getBlocksInfo();
+    
+	Timer timer;
+    
+	timer.start();
+#if defined(_QPX_) || defined(_QPXEMU_)	
+	if (kernels == "qpx")
+		sos = _computeSOS_OMP<MaxSpeedOfSound_QPX>(grid,  bAwk);
+	else
+#endif
+		sos = _computeSOS_OMP<MaxSpeedOfSound_CPP>(grid,  bAwk);
+	
+    const Real time = timer.stop();
+    
+    if (LSRK3data::verbosity >= 1 && LSRK3data::step_id % LSRK3data::ReportFreq == 0)
+    {
+		MaxSpeedOfSound_CPP::printflops(LSRK3data::PEAKPERF_CORE*1e9, LSRK3data::PEAKBAND*1e9, LSRK3data::NCORES, 1, vInfo.size(), time);
+        
+        cout << "MAXSOS: " << time << "s (per substep), " << time/vInfo.size()*1e3 << " ms (per block)" << endl;
+    }
+    
+    return sos;
+}
+
 template<typename Kflow, typename Kupdate>
 struct LSRKstep
 {
@@ -504,6 +568,9 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
         abort();
     }
     
+    Real pressure_avg=_computeFLAP();    
+    
+
     LSRK3data::step_id++;
     
     return dt;
