@@ -30,7 +30,7 @@ void Test_Flap::_ic(FluidGrid& grid)
     const double G2 = Simulation_Environment::GAMMA2-1;
     const double F1 = Simulation_Environment::GAMMA1*Simulation_Environment::PC1;
     const double F2 = Simulation_Environment::GAMMA2*Simulation_Environment::PC2;
-    
+    printf("----> %f",pInit / TInit / R_star);
 #pragma omp parallel
 	{	
 #ifdef _USE_NUMA_
@@ -38,7 +38,7 @@ void Test_Flap::_ic(FluidGrid& grid)
 		const int mynode = omp_get_thread_num() / cores_per_node;
 		numa_run_on_node(mynode);
 #endif
-		
+
 #pragma omp for
 		for(int i=0; i<(int)vInfo.size(); i++)
 		{
@@ -60,7 +60,7 @@ void Test_Flap::_ic(FluidGrid& grid)
 												b(ix, iy, iz).energy   = 0.5*(b(ix, iy, iz).u*b(ix, iy, iz).u
 															+ b(ix, iy, iz).v*b(ix, iy, iz).v
 															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + (gamma-1)*pInit;
-												b(ix, iy, iz).G        = 0.0;
+												b(ix, iy, iz).G        = 1.0/(gamma-1.0);
 												b(ix, iy, iz).P        = 0.0;
                     }
         }		
@@ -345,7 +345,7 @@ void Test_Flap::_setup_constants()
     flL   = parser("-flL").asDouble(0.850);
 
 		gamma   = parser("-gamma").asDouble(1.4);
-		R_star  = parser("-Rstar").asDouble(1.38e-23 / 4.82e-26); // k_Boltzman/molecular weight of air
+		R_star  = parser("-Rstar").asDouble(287); // k_Boltzman/molecular weight of air
 
     bASCIIFILES = parser("-ascii").asBool(false);
 
