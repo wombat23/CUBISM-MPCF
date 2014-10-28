@@ -28,6 +28,7 @@
 #include "Test_ShockBubble.h"
 #include "Test_SIC.h"
 #include "Test_Cloud.h"
+#include "Test_Flap.h"
 
 using namespace std;
 
@@ -124,7 +125,9 @@ int main (int argc, const char ** argv)
         sim = new Test_SIC(argc, argv);
     else if( parser("-sim").asString() == "cloud" )
       sim = new Test_Cloud(argc, argv);
-    else
+    else if ( parser("-sim").asString() == "flap" )
+	sim = new Test_Flap(argc,argv);
+	else
 	{
 		printf("Study case not defined!\n"); 
 		abort();
