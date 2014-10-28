@@ -15,8 +15,12 @@ class Test_Flap: public Test_SteadyState
     void _ic(FluidGrid& grid);
     
 protected:
-	Real pCrit;
-	Real pAmbient, tAmbient; 
+	Real pCrit,    pOutside;
+	Real pAmbient, tAmbient;
+    Real TInit;
+    Real tSM, tSE, iI, iU;
+    Real arcX,arcY,arcZ, arcWidth, arcHeight;
+    Real zetaGrid, thresP, flRho, flS, flL;
 
     void _setup_constants();
     void _dumpStatistics(FluidGrid& grid, const int counter, const Real t, const Real dt);

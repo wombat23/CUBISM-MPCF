@@ -313,10 +313,69 @@ void Test_Flap::run()
 
 void Test_Flap::_setup_constants()
 {
-	Test_SteadyState::_setup_constants();
-	
-	parser.set_strict_mode();
-	parser.unset_strict_mode();
+    parser.mute();
+    
+    bRESTART = parser("-restart").asBool();
+    
+    parser.set_strict_mode();
+    
+    TEND = parser("-tend").asDouble();
+    DUMPPERIOD = parser("-dumpperiod").asInt();
+    SAVEPERIOD = parser("-saveperiod").asInt();
+    CFL = parser("-cfl").asDouble();
+    BPDX = parser("-bpdx").asInt();
+    
+    parser.unset_strict_mode();
+    
+    pOutside = parser("-pOutside").asDouble(100000);
+    pCrit = parser("-pCrit").asDouble(6000);
+    TInit = parser("-tInit").asDouble(300);
+    
+    tSM  = parser("-tSM").asDouble(0.015);
+    tSE  = parser("-tSE").asDouble(0.015);
+    
+    iI   = parser("-iI").asDouble(1250000);
+    iU   = parser("-iU").asDouble(240);
+    
+    arcX = parser("-arcX").asDouble(0.1);
+    arcY = parser("-arcY").asDouble(arcX);
+    arcZ = parser("-arcZ").asDouble(arcX);
+    
+    arcWidth = parser("-arcWidth").asDouble(0.1);
+    arcHeight = parser("-arcHeight").asDouble(arcWidth);
+    
+    zetaGrid = parser("-zetaGrid").asDouble(0.219);
+    threshP  = parser("-threshP").asDouble(6000);
+    
+    flRho = parser("-flRho").asDouble(3500);
+    flS   = parser("-flS").asDouble(0.022);
+    flL   = parser("-flL").asDouble(0.850);
+    
+    bASCIIFILES = parser("-ascii").asBool(false);
+
+    BPDY = parser("-bpdy").asInt(BPDX);
+    BPDZ = parser("-bpdz").asInt(BPDX);
+    
+    Simulation_Environment::GAMMA1 = parser("-g1").asDouble(1.4);
+    Simulation_Environment::GAMMA2 = parser("-g2").asDouble(1.4);
+    
+    bVP = parser("-vp").asBool(0);
+    VERBOSITY = parser("-verb").asInt(0);
+    NSTEPS = parser("-nsteps").asInt(0);
+    bAWK = parser("-awk").asBool(false);
+    ANALYSISPERIOD = parser("-analysisperiod").asInt(std::numeric_limits<int>::max());
+    
+    assert(TEND >= 0.0);
+    assert(BPDX >= 1);
+    assert(BPDY >= 1);
+    assert(BPDZ >= 1);
+    assert(DUMPPERIOD > 0);
+    assert(CFL > 0 && CFL<1);
+    assert(MOLLFACTOR > 0);
+    
+    Simulation_Environment::PC1 = parser("-pc1").asDouble(0);
+    Simulation_Environment::PC2 = parser("-pc2").asDouble(0);
+    REPORT_FREQ = parser("-report").asInt(10);
 }
 
 void Test_Flap::setup()
