@@ -49,25 +49,19 @@ void Test_Flap::_ic(FluidGrid& grid)
                 for(int iy=0; iy<FluidBlock::sizeY; iy++)
                     for(int ix=0; ix<FluidBlock::sizeX; ix++)
                     {
-                        Real p[3], post_shock[3];
+                        Real p[3];
                         info.pos(p, ix, iy, iz);
-                        
-                        b(ix, iy, iz).v        = 0;
-                        b(ix, iy, iz).w        = 0;
-                        /*
-                                                const Real pre_shock[3] = {0.125,0,0.1};//{10,0.5,1/1.4};//{0.125,0,0.1};//{10,0.5,1/1.4};//
-                         Simulation_Environment::getPostShockRatio(pre_shock, Simulation_Environment::mach, Simulation_Environment::GAMMA1, Simulation_Environment::PC1, post_shock);
-                         const double shock = bubble;//Simulation_Environment::heaviside_smooth(p[0]-Simulation_Environment::shock_pos);
-                         
-                        post_shock[0] = 1;//1;//1;//1;
-                        post_shock[1] = 0;//0.5;//0;//0.5;
-                        post_shock[2] = 1;//1/1.4;//1;//1/1.4;
-                         
-                         b(ix, iy, iz).rho      = shock*post_shock[0] + (1-shock)*(1*bubble+pre_shock[0]*(1-bubble));
-                         b(ix, iy, iz).u        = 0;//(shock*post_shock[1] + (1-shock)*pre_shock[1])*b(ix, iy, iz).rho;
-                        b(ix, iy, iz).v        = 0;//0.5*b(ix, iy, iz).rho;
-                         b(ix, iy, iz).w        = 0;*/
-                        
+
+
+												b(ix, iy, iz).rho      = pInit / TInit / R_star;
+												b(ix, iy, iz).u        = 0.0;                        
+												b(ix, iy, iz).v        = 0.0;
+												b(ix, iy, iz).w        = 0.0;
+												b(ix, iy, iz).energy   = 0.5*(b(ix, iy, iz).u*b(ix, iy, iz).u
+															+ b(ix, iy, iz).v*b(ix, iy, iz).v
+															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + (gamma-1)*pInit;
+												b(ix, iy, iz).G        = 0.0;
+												b(ix, iy, iz).P        = 0.0;
                     }
         }		
 	}	
@@ -326,8 +320,9 @@ void Test_Flap::_setup_constants()
     
     parser.unset_strict_mode();
     
-    pOutside = parser("-pOutside").asDouble(100000); // pressure outside of the box
-    pCrit = parser("-pCrit").asDouble(6000); // pOut - pInsid > pCrit - open the flap
+    pInit = parser("-pInit").asDouble(100000);
+    pCrit = parser("-pCrit").asDouble(6000);
+
     TInit = parser("-tInit").asDouble(300);
     
     tSM  = parser("-tSM").asDouble(0.015); // time values for the functions of state
@@ -349,7 +344,10 @@ void Test_Flap::_setup_constants()
     flRho = parser("-flRho").asDouble(3500);
     flS   = parser("-flS").asDouble(0.022);
     flL   = parser("-flL").asDouble(0.850);
-    
+
+		gamma   = parser("-gamma").asDouble(1.4);
+		R_star  = parser("-Rstar").asDouble(1.38e-23 / 4.82e-26); // k_Boltzman/molecular weight of air
+
     bASCIIFILES = parser("-ascii").asBool(false);
 
     BPDY = parser("-bpdy").asInt(BPDX);
