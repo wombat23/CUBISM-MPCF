@@ -294,7 +294,7 @@ Real FlowStep_LSRK3::_computeSOS(bool bAwk)
 }
 
 template < typename TFLAP>
-Real _computeFLAP(FluidGrid& grid)
+Real _computeFLAP_omp(FluidGrid& grid)
 {
     vector<BlockInfo> vInfo = grid.getBlocksInfo();
     const int N = vInfo.size();
@@ -320,40 +320,26 @@ Real _computeFLAP(FluidGrid& grid)
         }
     }
     
+	cout << global_pAvg << endl;
+	cout << global_n << endl;
+
     global_rAvg /= global_n;
     global_pAvg /= global_n;
     global_uAvg /= global_n;
     global_tAvg /= global_n;
+
 	return global_pAvg;
 }
 
 Real FlowStep_LSRK3::_computeFLAP()
 {
-    Real sos = -1;
-	
-    const string kernels = parser("-kernels").asString("cpp");
+   Real pAvg = -1;
+
     vector<BlockInfo> vInfo = grid.getBlocksInfo();
-    
-	Timer timer;
-    
-	timer.start();
-#if defined(_QPX_) || defined(_QPXEMU_)	
-	if (kernels == "qpx")
-		sos = _computeSOS_OMP<MaxSpeedOfSound_QPX>(grid,  bAwk);
-	else
-#endif
-		sos = _computeSOS_OMP<MaxSpeedOfSound_CPP>(grid,  bAwk);
-	
-    const Real time = timer.stop();
-    
-    if (LSRK3data::verbosity >= 1 && LSRK3data::step_id % LSRK3data::ReportFreq == 0)
-    {
-		MaxSpeedOfSound_CPP::printflops(LSRK3data::PEAKPERF_CORE*1e9, LSRK3data::PEAKBAND*1e9, LSRK3data::NCORES, 1, vInfo.size(), time);
-        
-        cout << "MAXSOS: " << time << "s (per substep), " << time/vInfo.size()*1e3 << " ms (per block)" << endl;
-    }
-    
-    return sos;
+
+	pAvg  = _computeFLAP_omp<Flap_average>(grid);
+
+    return pAvg;
 }
 
 template<typename Kflow, typename Kupdate>
@@ -568,8 +554,8 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
         abort();
     }
     
-    Real pressure_avg=_computeFLAP();    
-    
+    	const Real pressure_avg=_computeFLAP();    
+	cout << "Average pressure at flap " << pressure_avg << endl;    
 
     LSRK3data::step_id++;
     

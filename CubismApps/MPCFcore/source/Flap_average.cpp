@@ -19,7 +19,7 @@
 
 using namespace std;
 
-Flap_average::Flap_average(const Real a, const Real dtinvh): a(a), dtinvh(dtinvh) { }
+Flap_average::Flap_average() { }
 
 void Flap_average::compute(const Real * const src, const int gptfloats,  Real & pAvg_local, Real & rAvg_local, Real & uAvg_local, Real & tAvg_local, int & N_local, const int nblocksx, int bx)
 {
@@ -45,11 +45,12 @@ void Flap_average::compute(const Real * const src, const int gptfloats,  Real & 
                         const Real rho = src[i];
                         const Real ru  = src[i+1];
                         const Real e   = src[i+4];
-                    rAvg_local += rho;
-                    uAvg_local += ru/rho;
-                    Real p = (e - .5*ru*ru/rho)/gamma;
-                    pAvg_local += p;
-                    tAvg_local += p/(R*rho);
+	                    rAvg_local += rho;
+        	            uAvg_local += ru/rho;
+                	    Real p = (e - .5*ru*ru/rho)/gamma;
+                    	pAvg_local += p;
+                    	tAvg_local += p/(R*rho);
+			N_local++;
                     }
                 } 
 }
