@@ -1,0 +1,826 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CBE60096A62A088701F02E0 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6253BBC5CBCB6CE34D70 /* Makefile */; };
+		1CBE609D0027A67F3824E63F /* ._Test_Flap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6C4EF7DEF9693D1852BF /* ._Test_Flap.cpp */; };
+		1CBE60E4C2BD90407A00CAB1 /* SourceTerm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6008CB661AE53021F571 /* SourceTerm.cpp */; };
+		1CBE611D8F5A8B89EB1C4018 /* playground-qpx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE65A8BA42A45603FA54EA /* playground-qpx.cpp */; };
+		1CBE629B3FCBC78EDCBD7CA4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6BCB5BA82805F15CDACF /* main.cpp */; };
+		1CBE62D1211E65570DA1A1CF /* Test_Cloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE66888BD4CCC4B1EF996B /* Test_Cloud.cpp */; };
+		1CBE62EE3E341B0F2DE830A7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6C83DB8393DB8706EC46 /* main.cpp */; };
+		1CBE6368B06839E399D67EAE /* Test_Convection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE64F41B221BC9B4B23C02 /* Test_Convection.cpp */; };
+		1CBE659D0DEA4BF9A56A1527 /* lz4.c in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6B59F5E25E7EC0684DE9 /* lz4.c */; };
+		1CBE65D8C273B2FC6C35403F /* Test_SteadyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6B88D08A94EB6AD4CBAC /* Test_SteadyState.cpp */; };
+		1CBE665A3603DB9DAACF1B80 /* ._FlowStep_LSRK3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE64FF4F62E414EAF49E65 /* ._FlowStep_LSRK3.cpp */; };
+		1CBE6697266D2F5DADA1B2B0 /* WaveletCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6F22294196F0AFB5D3F7 /* WaveletCompressor.cpp */; };
+		1CBE6705376504C0DBAA6709 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE62C836B5379A20A8032C /* Makefile */; };
+		1CBE6749B2E879B967279C56 /* ._Test_SteadyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE69A5B6F3F5F37DAF4A97 /* ._Test_SteadyState.cpp */; };
+		1CBE67860E314D9E43287AB0 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61DFFCEF2FEFC992864A /* Makefile */; };
+		1CBE6825AEFB81D723D09B7D /* ._main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6EEE70B38FF861676D0C /* ._main.cpp */; };
+		1CBE6870470FF88C235FF474 /* Test_SIC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE690006E041B2FE4F2F10 /* Test_SIC.cpp */; };
+		1CBE688514FAF1A5555F74CE /* DivSOA2D_QPX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE650C412A956854B9D0F5 /* DivSOA2D_QPX.cpp */; };
+		1CBE68AF5330BD34D3600DB0 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE65452F2BE1A3E36EA79A /* Makefile */; };
+		1CBE68B9C24F301B8BFC9DEB /* Test_ShockBubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6E40B04F1190301A4AAE /* Test_ShockBubble.cpp */; };
+		1CBE6998BB4C187EE36899EA /* Convection_CPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6EA657ECD8A0DB8DE80A /* Convection_CPP.cpp */; };
+		1CBE6A5A41143FA3DAF11675 /* MaxSpeedOfSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE60809856E018EF47E8AF /* MaxSpeedOfSound.cpp */; };
+		1CBE6A5F219ACDCFDC0EDA1F /* main-weno.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE62B0E29F4516EEB8A290 /* main-weno.cpp */; };
+		1CBE6A99ED6F17BC515D4ABF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE630C2EEB87CFE23A5C3C /* main.cpp */; };
+		1CBE6ABD6DFF793307525A87 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE684C48A771DEA9F8D805 /* main.cpp */; };
+		1CBE6AC56EF73D0119FC20D3 /* Histogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE62FBD371D17153257EF0 /* Histogram.cpp */; };
+		1CBE6B78C78963A512183965 /* ._SourceTerm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6FA4659ECE108A28089A /* ._SourceTerm.cpp */; };
+		1CBE6B79AEA8545D019D3368 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE637D104EB40CC17E9C34 /* Makefile */; };
+		1CBE6BCC445C41987BF801AD /* HLLESOA2D_QPX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE681A25330C11DAD35A71 /* HLLESOA2D_QPX.cpp */; };
+		1CBE6BD35562C0A30808B693 /* Flap_average.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6A158E70BA5296C9E2AA /* Flap_average.cpp */; };
+		1CBE6CED37DF0CCD742316CB /* Test_Flap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE621F595B8E5729D683BB /* Test_Flap.cpp */; };
+		1CBE6CFBE2E97F17184BA59B /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE614F75E24B95188E30FB /* Makefile */; };
+		1CBE6E20F1A6D7FFA5D1CCFB /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE67B059D1210D02F9D319 /* Makefile */; };
+		1CBE6E5C4C48EC42CA6F62CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6BB8E294959E872F1F5C /* main.cpp */; };
+		1CBE6EC86C07C2C4713D1EA1 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE634575691D4C8CC921AE /* Makefile */; };
+		1CBE6EFF3AB70567063332CF /* Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE606440D2B2F4541B1A8F /* Profiler.cpp */; };
+		1CBE6F4EECB8B4AE75F0C716 /* WenoSOA2D_QPX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE642864187AD3B46498F7 /* WenoSOA2D_QPX.cpp */; };
+		1CBE6F4FC763EF65F4F22923 /* Convection_CPP_omp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE63C4A2C97239240E9867 /* Convection_CPP_omp.cpp */; };
+		1CBE6FAADAF17E5BE3CADDF9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6A0446CAF11E701F1C64 /* main.cpp */; };
+		1CBE6FB920137D4423364E5F /* Types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE63B3F5B2288CF04854E0 /* Types.cpp */; };
+		1CBE6FC861E33B3D759D4364 /* Update.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE663B9F7F1F42F029638A /* Update.cpp */; };
+		1CBE6FD3E3DF84682AB9DF38 /* FlowStep_LSRK3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6EAA33DAA3969941FD75 /* FlowStep_LSRK3.cpp */; };
+		1CBE6FEA775DA2CEF2776740 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE6B2EE59FE797E34D83A1 /* Makefile */; };
+		4B62D0721A01145D00A16101 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B62D0711A01145D00A16101 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B62D06C1A01145D00A16101 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1CBE6008CB661AE53021F571 /* SourceTerm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourceTerm.cpp; sourceTree = "<group>"; };
+		1CBE606440D2B2F4541B1A8F /* Profiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Profiler.cpp; sourceTree = "<group>"; };
+		1CBE6066EE6C8FFDF7234A12 /* WaveletSerializationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveletSerializationTypes.h; sourceTree = "<group>"; };
+		1CBE60809856E018EF47E8AF /* MaxSpeedOfSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxSpeedOfSound.cpp; sourceTree = "<group>"; };
+		1CBE60A00D45DC1882159185 /* Convection_CPP.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Convection_CPP.o; sourceTree = "<group>"; };
+		1CBE61145D539A6393CDD229 /* ParIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParIO.h; sourceTree = "<group>"; };
+		1CBE61498EB075820EBDF7FD /* SerializerIO_VP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializerIO_VP.h; sourceTree = "<group>"; };
+		1CBE614F75E24B95188E30FB /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE616DD7E7604742416149 /* centerline_velocities.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = centerline_velocities.dat; sourceTree = "<group>"; };
+		1CBE61876037B1832664091B /* Convection_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convection_QPX.h; sourceTree = "<group>"; };
+		1CBE61BED09360E961102192 /* MaxSpeedOfSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaxSpeedOfSound.h; sourceTree = "<group>"; };
+		1CBE61DFFCEF2FEFC992864A /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE61EFF70E674AF214DAA9 /* Test_Convection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Convection.h; sourceTree = "<group>"; };
+		1CBE61F7866683767951D363 /* lsf.o72886602 */ = {isa = PBXFileReference; lastKnownFileType = file.o72886602; path = lsf.o72886602; sourceTree = "<group>"; };
+		1CBE61F932F0692E50E9924B /* Makefile.config */ = {isa = PBXFileReference; lastKnownFileType = file.config; name = Makefile.config; path = ../../CubismApps/Makefile.config; sourceTree = "<group>"; };
+		1CBE62052142945AF8A0CC77 /* cloud.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = cloud.dat; sourceTree = "<group>"; };
+		1CBE621F595B8E5729D683BB /* Test_Flap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Flap.cpp; sourceTree = "<group>"; };
+		1CBE6237E96ED27ECDE8E824 /* Test_Convection.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_Convection.o; sourceTree = "<group>"; };
+		1CBE6240E8CADEE800F61F84 /* Test_Cloud.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_Cloud.o; sourceTree = "<group>"; };
+		1CBE62413B7A7A4EA39B4126 /* MPI_Streamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPI_Streamer.h; sourceTree = "<group>"; };
+		1CBE6245D58816CE6811E4E8 /* WenoFused_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenoFused_QPX.h; sourceTree = "<group>"; };
+		1CBE6253BBC5CBCB6CE34D70 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE625C1524E462DE9B1013 /* Reader_WaveletCompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader_WaveletCompression.h; sourceTree = "<group>"; };
+		1CBE6277FEF9F39338F1DE7C /* lsf.o72872914 */ = {isa = PBXFileReference; lastKnownFileType = file.o72872914; path = lsf.o72872914; sourceTree = "<group>"; };
+		1CBE62810A4F186790C93DCA /* Test_SICMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_SICMPI.h; sourceTree = "<group>"; };
+		1CBE628921B8314D121402FA /* FullWaveletTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullWaveletTransform.h; sourceTree = "<group>"; };
+		1CBE6290EB6B9E6C2F8B27CE /* BlockLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockLab.h; sourceTree = "<group>"; };
+		1CBE62AAB429CB5D23396A1F /* history.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = history.txt; sourceTree = "<group>"; };
+		1CBE62B0E29F4516EEB8A290 /* main-weno.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "main-weno.cpp"; sourceTree = "<group>"; };
+		1CBE62BB58BFD93859DDED3B /* DependencyCubeMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DependencyCubeMPI.h; sourceTree = "<group>"; };
+		1CBE62C836B5379A20A8032C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE62F192E441E3C3C9B51B /* SerializerIO_WaveletCompression_MPI_Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializerIO_WaveletCompression_MPI_Simple.h; sourceTree = "<group>"; };
+		1CBE62FBD371D17153257EF0 /* Histogram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Histogram.cpp; sourceTree = "<group>"; };
+		1CBE630C2EEB87CFE23A5C3C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE63306E877905A8279B14 /* DivSOA2D_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DivSOA2D_QPX.h; sourceTree = "<group>"; };
+		1CBE634575691D4C8CC921AE /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE636E76B2444FB57879F1 /* integrals.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = integrals.dat; sourceTree = "<group>"; };
+		1CBE637D104EB40CC17E9C34 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../CubismApps/Makefile; sourceTree = "<group>"; };
+		1CBE63B3F5B2288CF04854E0 /* Types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Types.cpp; sourceTree = "<group>"; };
+		1CBE63C4A2C97239240E9867 /* Convection_CPP_omp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Convection_CPP_omp.cpp; sourceTree = "<group>"; };
+		1CBE63DC800245091EBAE2D7 /* WaveletCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveletCompressor.h; sourceTree = "<group>"; };
+		1CBE63E370F340D7C2992B08 /* WenoSOA2D_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WenoSOA2D_QPX.h; sourceTree = "<group>"; };
+		1CBE6400D4A0C3E961C02E92 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		1CBE64272900D5AAF6E35D97 /* Matrix4D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4D.h; sourceTree = "<group>"; };
+		1CBE642864187AD3B46498F7 /* WenoSOA2D_QPX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WenoSOA2D_QPX.cpp; sourceTree = "<group>"; };
+		1CBE645F310DDEABCFD48C7E /* Weno_QPX_3rdOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weno_QPX_3rdOrder.h; sourceTree = "<group>"; };
+		1CBE646315D79F9A3F399843 /* BlockProcessingMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockProcessingMPI.h; sourceTree = "<group>"; };
+		1CBE6476AF0EC23D5D6D77A8 /* FlowStep_LSRK3.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = FlowStep_LSRK3.o; sourceTree = "<group>"; };
+		1CBE64880B9C2E397C533CB2 /* GridMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMPI.h; sourceTree = "<group>"; };
+		1CBE648F95FA0BA5079F9996 /* lsf.o72885025 */ = {isa = PBXFileReference; lastKnownFileType = file.o72885025; path = lsf.o72885025; sourceTree = "<group>"; };
+		1CBE64A064962AF0BA0C8DB6 /* FlowStep_LSRK3MPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowStep_LSRK3MPI.h; sourceTree = "<group>"; };
+		1CBE64AB1C7EC25E2CB09595 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
+		1CBE64DDD0764864DE592091 /* lz4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lz4.h; sourceTree = "<group>"; };
+		1CBE64F41B221BC9B4B23C02 /* Test_Convection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Convection.cpp; sourceTree = "<group>"; };
+		1CBE64FF4F62E414EAF49E65 /* ._FlowStep_LSRK3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ._FlowStep_LSRK3.cpp; sourceTree = "<group>"; };
+		1CBE650004DA32D1FD36446F /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
+		1CBE650C412A956854B9D0F5 /* DivSOA2D_QPX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DivSOA2D_QPX.cpp; sourceTree = "<group>"; };
+		1CBE6512FC1F95AA3F61E570 /* BlockInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockInfo.h; sourceTree = "<group>"; };
+		1CBE652EC05452C18B34DF8D /* TestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTypes.h; sourceTree = "<group>"; };
+		1CBE65452F2BE1A3E36EA79A /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE6545AE5C3B7E927125EB /* lsf.o72878985 */ = {isa = PBXFileReference; lastKnownFileType = file.o72878985; path = lsf.o72878985; sourceTree = "<group>"; };
+		1CBE6551DDC1B7E06356D54A /* mpcf-node */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mpcf-node"; sourceTree = "<group>"; };
+		1CBE6599540FCC783F529C60 /* Test_LocalKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_LocalKernel.h; sourceTree = "<group>"; };
+		1CBE65A8BA42A45603FA54EA /* playground-qpx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "playground-qpx.cpp"; sourceTree = "<group>"; };
+		1CBE65CBDB65DF6072E02EE7 /* Convection_CPP_omp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convection_CPP_omp.h; sourceTree = "<group>"; };
+		1CBE65D075A0E99F925BB602 /* WaveletTexture3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveletTexture3D.h; sourceTree = "<group>"; };
+		1CBE6628BF7AA46650F7F52C /* BlockLabMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockLabMPI.h; sourceTree = "<group>"; };
+		1CBE662E307AE1C1753127EB /* SerializerIO_ImageVTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializerIO_ImageVTK.h; sourceTree = "<group>"; };
+		1CBE663B9F7F1F42F029638A /* Update.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Update.cpp; sourceTree = "<group>"; };
+		1CBE664CB8E23F831171F3AD /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		1CBE6652072BD0955CF7D4AC /* MaxSpeedOfSound.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = MaxSpeedOfSound.o; sourceTree = "<group>"; };
+		1CBE66739B8B39D3238266E4 /* SerializerIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializerIO.h; sourceTree = "<group>"; };
+		1CBE66888BD4CCC4B1EF996B /* Test_Cloud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Cloud.cpp; sourceTree = "<group>"; };
+		1CBE66A151A8BD9B25BD241D /* Test_SteadyStateMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_SteadyStateMPI.h; sourceTree = "<group>"; };
+		1CBE66C0668C9B1F5B82CB0F /* Convection_CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convection_CPP.h; sourceTree = "<group>"; };
+		1CBE66C438EBBB820BF82E1A /* SourceTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceTerm.h; sourceTree = "<group>"; };
+		1CBE66F98D7CD05DD37482DA /* WaveletsOnIntervalQPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveletsOnIntervalQPX.h; sourceTree = "<group>"; };
+		1CBE67178B1A82DDA879A44B /* Histogram.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Histogram.o; sourceTree = "<group>"; };
+		1CBE671F91FD9B8804948376 /* BoundaryConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundaryConditions.h; sourceTree = "<group>"; };
+		1CBE6727F4439B1DA041386E /* vpconvert.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = vpconvert.sh; sourceTree = "<group>"; };
+		1CBE6748721EBCB6FB4C97C2 /* SOA2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOA2D.h; sourceTree = "<group>"; };
+		1CBE6749430F7806CD008539 /* StencilInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StencilInfo.h; sourceTree = "<group>"; };
+		1CBE678BE49F68CCEA3C8231 /* Flap_average.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flap_average.h; sourceTree = "<group>"; };
+		1CBE679E76E9EF4116157E86 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		1CBE67B059D1210D02F9D319 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE67CDFB49C4E6166AAD02 /* Test_ShockBubbleMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_ShockBubbleMPI.h; sourceTree = "<group>"; };
+		1CBE67D388D7271CF7DB404D /* run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		1CBE67E3441D77649AEFBAE5 /* BlockProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockProcessing.h; sourceTree = "<group>"; };
+		1CBE681A25330C11DAD35A71 /* HLLESOA2D_QPX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HLLESOA2D_QPX.cpp; sourceTree = "<group>"; };
+		1CBE684C48A771DEA9F8D805 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE684D32B1B2C671C0BB3D /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		1CBE6858ABC84BF0C3FA3F0C /* ._FlowStep_LSRK3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ._FlowStep_LSRK3.h; sourceTree = "<group>"; };
+		1CBE685C25F63972E7C2E35D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		1CBE6888D287C97D7579BE96 /* lsf.o72886592 */ = {isa = PBXFileReference; lastKnownFileType = file.o72886592; path = lsf.o72886592; sourceTree = "<group>"; };
+		1CBE688FFE09C0621E78714F /* Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Update.h; sourceTree = "<group>"; };
+		1CBE68B1E0F907747118B497 /* Flap_average.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Flap_average.o; sourceTree = "<group>"; };
+		1CBE68C14D99D6CCADA6E0EB /* Test_SteadyState.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_SteadyState.o; sourceTree = "<group>"; };
+		1CBE68E9A6579012814D4A0B /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		1CBE690006E041B2FE4F2F10 /* Test_SIC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_SIC.cpp; sourceTree = "<group>"; };
+		1CBE694586DE9E145F4D2C82 /* p_center.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = p_center.dat; sourceTree = "<group>"; };
+		1CBE6961A384CCED90FAD1FC /* Update.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Update.o; sourceTree = "<group>"; };
+		1CBE6999511C86D1257F080E /* Convection_CPP_omp.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Convection_CPP_omp.o; sourceTree = "<group>"; };
+		1CBE699C02DF5402B6C7A0C0 /* Test_Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Cloud.h; sourceTree = "<group>"; };
+		1CBE69A4976A13AD488ED93C /* Test_SIC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_SIC.h; sourceTree = "<group>"; };
+		1CBE69A5B6F3F5F37DAF4A97 /* ._Test_SteadyState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ._Test_SteadyState.cpp; sourceTree = "<group>"; };
+		1CBE6A0446CAF11E701F1C64 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE6A158E70BA5296C9E2AA /* Flap_average.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flap_average.cpp; sourceTree = "<group>"; };
+		1CBE6A229C93B212406A11AC /* interface.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = interface.dat; sourceTree = "<group>"; };
+		1CBE6A248C92C9487AE85C77 /* restart.status */ = {isa = PBXFileReference; lastKnownFileType = file.status; path = restart.status; sourceTree = "<group>"; };
+		1CBE6A2E23CACB5F0D12EA71 /* check_errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = check_errors.h; sourceTree = "<group>"; };
+		1CBE6A4C317307110395DDC3 /* Update_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Update_QPX.h; sourceTree = "<group>"; };
+		1CBE6A522EA811F46C58694B /* restart */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = restart; sourceTree = "<group>"; };
+		1CBE6A5B498C514D51E0FB7A /* Test_Flap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Flap.h; sourceTree = "<group>"; };
+		1CBE6A5EBE3F917628B847CC /* Test_CloudMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_CloudMPI.h; sourceTree = "<group>"; };
+		1CBE6A8813AE6CE1BAD87035 /* Profiler.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Profiler.o; sourceTree = "<group>"; };
+		1CBE6AA072F8C49FEEE1C676 /* Test_Flap.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_Flap.o; sourceTree = "<group>"; };
+		1CBE6AB11263E4101B70F8A0 /* Weno_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weno_QPX.h; sourceTree = "<group>"; };
+		1CBE6AC573947BBE06AB21CA /* run.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		1CBE6AE86474C79DB62C7700 /* SynchronizerMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizerMPI.h; sourceTree = "<group>"; };
+		1CBE6AFD46D9436D36DD4CE0 /* Matrix3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix3D.h; sourceTree = "<group>"; };
+		1CBE6B0219E3B3B0C0F840D3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		1CBE6B2984D9308AD5E58D9B /* GridMorton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMorton.h; sourceTree = "<group>"; };
+		1CBE6B2EE59FE797E34D83A1 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1CBE6B5837DF260507729A91 /* PUPkernelsMPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUPkernelsMPI.h; sourceTree = "<group>"; };
+		1CBE6B58B872F1ACC0869D40 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		1CBE6B59F5E25E7EC0684DE9 /* lz4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lz4.c; sourceTree = "<group>"; };
+		1CBE6B861B0F6A85A805E510 /* Test_ShockBubble.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_ShockBubble.o; sourceTree = "<group>"; };
+		1CBE6B88D08A94EB6AD4CBAC /* Test_SteadyState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_SteadyState.cpp; sourceTree = "<group>"; };
+		1CBE6B9BC35E887D60A025CD /* FlowStep_LSRK3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowStep_LSRK3.h; sourceTree = "<group>"; };
+		1CBE6BA5655BAD382BC50620 /* Test_SIC.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Test_SIC.o; sourceTree = "<group>"; };
+		1CBE6BB8E294959E872F1F5C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE6BCB5BA82805F15CDACF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE6BCC48C8D9209052A446 /* centerline_pressure-0.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = "centerline_pressure-0.dat"; sourceTree = "<group>"; };
+		1CBE6BE9D86B5CAAD3919EA5 /* WaveletCompressor.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = WaveletCompressor.o; sourceTree = "<group>"; };
+		1CBE6BF4A924471A5C9F3F25 /* HLLESOA2D_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLLESOA2D_QPX.h; sourceTree = "<group>"; };
+		1CBE6C07244ED08525F301BB /* Indexers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indexers.h; sourceTree = "<group>"; };
+		1CBE6C1B1FC593A4913C6AC8 /* run-playground.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "run-playground.sh"; sourceTree = "<group>"; };
+		1CBE6C4EF7DEF9693D1852BF /* ._Test_Flap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ._Test_Flap.cpp; sourceTree = "<group>"; };
+		1CBE6C7BA6E53BD52BB6C0D6 /* mpcf-core */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mpcf-core"; sourceTree = "<group>"; };
+		1CBE6C83DB8393DB8706EC46 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1CBE6CA5AE45872A19654076 /* Test_ShockBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_ShockBubble.h; sourceTree = "<group>"; };
+		1CBE6CEC33CF19F93285FA65 /* lsf.o72872894 */ = {isa = PBXFileReference; lastKnownFileType = file.o72872894; path = lsf.o72872894; sourceTree = "<group>"; };
+		1CBE6CF34818A58C50BD9F23 /* mpcf-cluster */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mpcf-cluster"; sourceTree = "<group>"; };
+		1CBE6D0661FC9CA6BA201697 /* Profiler.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Profiler.o; sourceTree = "<group>"; };
+		1CBE6D155D3C4FBD3F14DCE6 /* QPXEMU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPXEMU.h; sourceTree = "<group>"; };
+		1CBE6D45F3603FA0AD345F55 /* Histogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Histogram.h; sourceTree = "<group>"; };
+		1CBE6D47D861C4CCC7341087 /* lsf.o72872987 */ = {isa = PBXFileReference; lastKnownFileType = file.o72872987; path = lsf.o72872987; sourceTree = "<group>"; };
+		1CBE6D59D2F8ACB546EB41CE /* cloud_config.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = cloud_config.dat; sourceTree = "<group>"; };
+		1CBE6E40B04F1190301A4AAE /* Test_ShockBubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_ShockBubble.cpp; sourceTree = "<group>"; };
+		1CBE6E8480D80F7924A3400F /* Types.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Types.o; sourceTree = "<group>"; };
+		1CBE6EA3FB40C211D9F8D6C4 /* ArgumentParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentParser.h; sourceTree = "<group>"; };
+		1CBE6EA657ECD8A0DB8DE80A /* Convection_CPP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Convection_CPP.cpp; sourceTree = "<group>"; };
+		1CBE6EAA33DAA3969941FD75 /* FlowStep_LSRK3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlowStep_LSRK3.cpp; sourceTree = "<group>"; };
+		1CBE6EC1125AF108C5E54AE2 /* Test_SteadyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_SteadyState.h; sourceTree = "<group>"; };
+		1CBE6EEE70B38FF861676D0C /* ._main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ._main.cpp; sourceTree = "<group>"; };
+		1CBE6EF513B0A975BA573338 /* Weno_CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weno_CPP.h; sourceTree = "<group>"; };
+		1CBE6EFEFDA6440A83908BE0 /* ._Test_Flap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ._Test_Flap.h; sourceTree = "<group>"; };
+		1CBE6F1349F6F368450D9218 /* wall_pressure-0.dat */ = {isa = PBXFileReference; lastKnownFileType = file.dat; path = "wall_pressure-0.dat"; sourceTree = "<group>"; };
+		1CBE6F1ED0410FEE1AF3EE2F /* ._SourceTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ._SourceTerm.h; sourceTree = "<group>"; };
+		1CBE6F22294196F0AFB5D3F7 /* WaveletCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveletCompressor.cpp; sourceTree = "<group>"; };
+		1CBE6F2343414DF45F35E1C5 /* HDF5Dumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDF5Dumper.h; sourceTree = "<group>"; };
+		1CBE6F6116A0019E0446F522 /* CompressionEncoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressionEncoders.h; sourceTree = "<group>"; };
+		1CBE6FA4659ECE108A28089A /* ._SourceTerm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ._SourceTerm.cpp; sourceTree = "<group>"; };
+		1CBE6FC458D380F40E7C3377 /* vpconvert.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = vpconvert.sh; sourceTree = "<group>"; };
+		1CBE6FC46AD0F25819448BB9 /* MaxSpeedOfSound_QPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaxSpeedOfSound_QPX.h; sourceTree = "<group>"; };
+		1CBE6FE4C40F3264C0596A3D /* HDF5Dumper_MPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDF5Dumper_MPI.h; sourceTree = "<group>"; };
+		1CBE6FFE7ACF877E29790ECF /* WaveletsOnInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveletsOnInterval.h; sourceTree = "<group>"; };
+		4B62D06E1A01145D00A16101 /* Cub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cub; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B62D0711A01145D00A16101 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B62D06B1A01145D00A16101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CBE605406AD8F2B5AC35621 /* makefiles */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE67D388D7271CF7DB404D /* run.sh */,
+				1CBE61DFFCEF2FEFC992864A /* Makefile */,
+				1CBE6C1B1FC593A4913C6AC8 /* run-playground.sh */,
+			);
+			path = makefiles;
+			sourceTree = "<group>";
+		};
+		1CBE60F82A7C0A6D7828C059 /* MPCFcore */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6C1DEDA48298DFA904DE /* source */,
+				1CBE6F26903C92F6C2A3AA08 /* makefiles */,
+			);
+			name = MPCFcore;
+			path = ../../CubismApps/MPCFcore;
+			sourceTree = "<group>";
+		};
+		1CBE61D2AC9D0B2AB58248DF /* CubismApps */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE637D104EB40CC17E9C34 /* Makefile */,
+				1CBE61F932F0692E50E9924B /* Makefile.config */,
+				1CBE6F888B965E874FB566E4 /* MPCFnode */,
+				1CBE69FFBD1959663B66BD73 /* MPCFthread */,
+				1CBE688EE2595CDB1D713178 /* tools */,
+				1CBE680B9C647206AEDDF801 /* MPCFcluster */,
+				1CBE60F82A7C0A6D7828C059 /* MPCFcore */,
+			);
+			name = CubismApps;
+			sourceTree = "<group>";
+		};
+		1CBE62D15FBD95FA60BFA085 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6EF513B0A975BA573338 /* Weno_CPP.h */,
+				1CBE6AB11263E4101B70F8A0 /* Weno_QPX.h */,
+				1CBE62B0E29F4516EEB8A290 /* main-weno.cpp */,
+				1CBE6245D58816CE6811E4E8 /* WenoFused_QPX.h */,
+				1CBE65A8BA42A45603FA54EA /* playground-qpx.cpp */,
+				1CBE645F310DDEABCFD48C7E /* Weno_QPX_3rdOrder.h */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		1CBE66016F2A191D56FB6787 /* vp2hdf */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6C83DB8393DB8706EC46 /* main.cpp */,
+				1CBE614F75E24B95188E30FB /* Makefile */,
+				1CBE68E9A6579012814D4A0B /* readme.txt */,
+				1CBE6FC458D380F40E7C3377 /* vpconvert.sh */,
+			);
+			path = vp2hdf;
+			sourceTree = "<group>";
+		};
+		1CBE662E6FDE9B85855D3185 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE61145D539A6393CDD229 /* ParIO.h */,
+				1CBE684C48A771DEA9F8D805 /* main.cpp */,
+				1CBE62810A4F186790C93DCA /* Test_SICMPI.h */,
+				1CBE62413B7A7A4EA39B4126 /* MPI_Streamer.h */,
+				1CBE6A5EBE3F917628B847CC /* Test_CloudMPI.h */,
+				1CBE64A064962AF0BA0C8DB6 /* FlowStep_LSRK3MPI.h */,
+				1CBE6F6116A0019E0446F522 /* CompressionEncoders.h */,
+				1CBE67CDFB49C4E6166AAD02 /* Test_ShockBubbleMPI.h */,
+				1CBE66A151A8BD9B25BD241D /* Test_SteadyStateMPI.h */,
+				1CBE6066EE6C8FFDF7234A12 /* WaveletSerializationTypes.h */,
+				1CBE62F192E441E3C3C9B51B /* SerializerIO_WaveletCompression_MPI_Simple.h */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		1CBE680B9C647206AEDDF801 /* MPCFcluster */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE662E6FDE9B85855D3185 /* source */,
+				1CBE6C7554C4F7E64562FFDE /* makefiles */,
+			);
+			name = MPCFcluster;
+			path = ../../CubismApps/MPCFcluster;
+			sourceTree = "<group>";
+		};
+		1CBE688EE2595CDB1D713178 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE68B46339CBFFAF4D82A5 /* lz4 */,
+				1CBE68977011A2AFDD3D90AF /* reader */,
+				1CBE66016F2A191D56FB6787 /* vp2hdf */,
+				1CBE695A4C7D99CED2DCED51 /* vpcachier */,
+			);
+			name = tools;
+			path = ../../CubismApps/tools;
+			sourceTree = "<group>";
+		};
+		1CBE68977011A2AFDD3D90AF /* reader */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6BCB5BA82805F15CDACF /* main.cpp */,
+				1CBE6253BBC5CBCB6CE34D70 /* Makefile */,
+				1CBE625C1524E462DE9B1013 /* Reader_WaveletCompression.h */,
+			);
+			path = reader;
+			sourceTree = "<group>";
+		};
+		1CBE68B46339CBFFAF4D82A5 /* lz4 */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6B59F5E25E7EC0684DE9 /* lz4.c */,
+				1CBE64DDD0764864DE592091 /* lz4.h */,
+				1CBE65452F2BE1A3E36EA79A /* Makefile */,
+			);
+			path = lz4;
+			sourceTree = "<group>";
+		};
+		1CBE695A4C7D99CED2DCED51 /* vpcachier */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE630C2EEB87CFE23A5C3C /* main.cpp */,
+				1CBE67B059D1210D02F9D319 /* Makefile */,
+				1CBE6727F4439B1DA041386E /* vpconvert.sh */,
+				1CBE65D075A0E99F925BB602 /* WaveletTexture3D.h */,
+			);
+			path = vpcachier;
+			sourceTree = "<group>";
+		};
+		1CBE69FFBD1959663B66BD73 /* MPCFthread */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE62D15FBD95FA60BFA085 /* source */,
+				1CBE605406AD8F2B5AC35621 /* makefiles */,
+			);
+			name = MPCFthread;
+			path = ../../CubismApps/MPCFthread;
+			sourceTree = "<group>";
+		};
+		1CBE6B17770DA1F376CDE744 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE64AB1C7EC25E2CB09595 /* Tests.h */,
+				1CBE664CB8E23F831171F3AD /* Types.h */,
+				1CBE6BB8E294959E872F1F5C /* main.cpp */,
+				1CBE63B3F5B2288CF04854E0 /* Types.cpp */,
+				1CBE6EEE70B38FF861676D0C /* ._main.cpp */,
+				1CBE69A4976A13AD488ED93C /* Test_SIC.h */,
+				1CBE6A5B498C514D51E0FB7A /* Test_Flap.h */,
+				1CBE699C02DF5402B6C7A0C0 /* Test_Cloud.h */,
+				1CBE690006E041B2FE4F2F10 /* Test_SIC.cpp */,
+				1CBE6EFEFDA6440A83908BE0 /* ._Test_Flap.h */,
+				1CBE621F595B8E5729D683BB /* Test_Flap.cpp */,
+				1CBE66888BD4CCC4B1EF996B /* Test_Cloud.cpp */,
+				1CBE6C4EF7DEF9693D1852BF /* ._Test_Flap.cpp */,
+				1CBE6B9BC35E887D60A025CD /* FlowStep_LSRK3.h */,
+				1CBE6858ABC84BF0C3FA3F0C /* ._FlowStep_LSRK3.h */,
+				1CBE6EAA33DAA3969941FD75 /* FlowStep_LSRK3.cpp */,
+				1CBE6CA5AE45872A19654076 /* Test_ShockBubble.h */,
+				1CBE6EC1125AF108C5E54AE2 /* Test_SteadyState.h */,
+				1CBE63DC800245091EBAE2D7 /* WaveletCompressor.h */,
+				1CBE64FF4F62E414EAF49E65 /* ._FlowStep_LSRK3.cpp */,
+				1CBE671F91FD9B8804948376 /* BoundaryConditions.h */,
+				1CBE6E40B04F1190301A4AAE /* Test_ShockBubble.cpp */,
+				1CBE6B88D08A94EB6AD4CBAC /* Test_SteadyState.cpp */,
+				1CBE6FFE7ACF877E29790ECF /* WaveletsOnInterval.h */,
+				1CBE6F22294196F0AFB5D3F7 /* WaveletCompressor.cpp */,
+				1CBE69A5B6F3F5F37DAF4A97 /* ._Test_SteadyState.cpp */,
+				1CBE628921B8314D121402FA /* FullWaveletTransform.h */,
+				1CBE66F98D7CD05DD37482DA /* WaveletsOnIntervalQPX.h */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		1CBE6B191347A3B18B7C7D7A /* makefiles */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE684D32B1B2C671C0BB3D /* main.o */,
+				1CBE6A522EA811F46C58694B /* restart */,
+				1CBE6E8480D80F7924A3400F /* Types.o */,
+				1CBE6B2EE59FE797E34D83A1 /* Makefile */,
+				1CBE6551DDC1B7E06356D54A /* mpcf-node */,
+				1CBE6A8813AE6CE1BAD87035 /* Profiler.o */,
+				1CBE6BA5655BAD382BC50620 /* Test_SIC.o */,
+				1CBE62AAB429CB5D23396A1F /* history.txt */,
+				1CBE6AA072F8C49FEEE1C676 /* Test_Flap.o */,
+				1CBE694586DE9E145F4D2C82 /* p_center.dat */,
+				1CBE6240E8CADEE800F61F84 /* Test_Cloud.o */,
+				1CBE636E76B2444FB57879F1 /* integrals.dat */,
+				1CBE6A229C93B212406A11AC /* interface.dat */,
+				1CBE6CEC33CF19F93285FA65 /* lsf.o72872894 */,
+				1CBE6277FEF9F39338F1DE7C /* lsf.o72872914 */,
+				1CBE6D47D861C4CCC7341087 /* lsf.o72872987 */,
+				1CBE6545AE5C3B7E927125EB /* lsf.o72878985 */,
+				1CBE648F95FA0BA5079F9996 /* lsf.o72885025 */,
+				1CBE6888D287C97D7579BE96 /* lsf.o72886592 */,
+				1CBE61F7866683767951D363 /* lsf.o72886602 */,
+				1CBE6A248C92C9487AE85C77 /* restart.status */,
+				1CBE6476AF0EC23D5D6D77A8 /* FlowStep_LSRK3.o */,
+				1CBE6B861B0F6A85A805E510 /* Test_ShockBubble.o */,
+				1CBE68C14D99D6CCADA6E0EB /* Test_SteadyState.o */,
+				1CBE6F1349F6F368450D9218 /* wall_pressure-0.dat */,
+				1CBE6BE9D86B5CAAD3919EA5 /* WaveletCompressor.o */,
+				1CBE6BCC48C8D9209052A446 /* centerline_pressure-0.dat */,
+				1CBE616DD7E7604742416149 /* centerline_velocities.dat */,
+			);
+			path = makefiles;
+			sourceTree = "<group>";
+		};
+		1CBE6B527BF8C05188887C27 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6400D4A0C3E961C02E92 /* Grid.h */,
+				1CBE685C25F63972E7C2E35D /* Timer.h */,
+				1CBE64880B9C2E397C533CB2 /* GridMPI.h */,
+				1CBE6290EB6B9E6C2F8B27CE /* BlockLab.h */,
+				1CBE6C07244ED08525F301BB /* Indexers.h */,
+				1CBE6AFD46D9436D36DD4CE0 /* Matrix3D.h */,
+				1CBE64272900D5AAF6E35D97 /* Matrix4D.h */,
+				1CBE650004DA32D1FD36446F /* Profiler.h */,
+				1CBE6512FC1F95AA3F61E570 /* BlockInfo.h */,
+				1CBE6D45F3603FA0AD345F55 /* Histogram.h */,
+				1CBE6B2984D9308AD5E58D9B /* GridMorton.h */,
+				1CBE6F2343414DF45F35E1C5 /* HDF5Dumper.h */,
+				1CBE606440D2B2F4541B1A8F /* Profiler.cpp */,
+				1CBE6628BF7AA46650F7F52C /* BlockLabMPI.h */,
+				1CBE62FBD371D17153257EF0 /* Histogram.cpp */,
+				1CBE6749430F7806CD008539 /* StencilInfo.h */,
+				1CBE66739B8B39D3238266E4 /* SerializerIO.h */,
+				1CBE6B5837DF260507729A91 /* PUPkernelsMPI.h */,
+				1CBE6EA3FB40C211D9F8D6C4 /* ArgumentParser.h */,
+				1CBE6FE4C40F3264C0596A3D /* HDF5Dumper_MPI.h */,
+				1CBE67E3441D77649AEFBAE5 /* BlockProcessing.h */,
+				1CBE61498EB075820EBDF7FD /* SerializerIO_VP.h */,
+				1CBE6AE86474C79DB62C7700 /* SynchronizerMPI.h */,
+				1CBE62BB58BFD93859DDED3B /* DependencyCubeMPI.h */,
+				1CBE646315D79F9A3F399843 /* BlockProcessingMPI.h */,
+				1CBE662E307AE1C1753127EB /* SerializerIO_ImageVTK.h */,
+			);
+			name = source;
+			path = ../../Cubism/source;
+			sourceTree = "<group>";
+		};
+		1CBE6C1DEDA48298DFA904DE /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6748721EBCB6FB4C97C2 /* SOA2D.h */,
+				1CBE6B0219E3B3B0C0F840D3 /* common.h */,
+				1CBE6A0446CAF11E701F1C64 /* main.cpp */,
+				1CBE6D155D3C4FBD3F14DCE6 /* QPXEMU.h */,
+				1CBE688FFE09C0621E78714F /* Update.h */,
+				1CBE663B9F7F1F42F029638A /* Update.cpp */,
+				1CBE652EC05452C18B34DF8D /* TestTypes.h */,
+				1CBE66C438EBBB820BF82E1A /* SourceTerm.h */,
+				1CBE6A4C317307110395DDC3 /* Update_QPX.h */,
+				1CBE6F1ED0410FEE1AF3EE2F /* ._SourceTerm.h */,
+				1CBE6A2E23CACB5F0D12EA71 /* check_errors.h */,
+				1CBE63306E877905A8279B14 /* DivSOA2D_QPX.h */,
+				1CBE678BE49F68CCEA3C8231 /* Flap_average.h */,
+				1CBE6008CB661AE53021F571 /* SourceTerm.cpp */,
+				1CBE6BF4A924471A5C9F3F25 /* HLLESOA2D_QPX.h */,
+				1CBE63E370F340D7C2992B08 /* WenoSOA2D_QPX.h */,
+				1CBE6FA4659ECE108A28089A /* ._SourceTerm.cpp */,
+				1CBE66C0668C9B1F5B82CB0F /* Convection_CPP.h */,
+				1CBE61876037B1832664091B /* Convection_QPX.h */,
+				1CBE650C412A956854B9D0F5 /* DivSOA2D_QPX.cpp */,
+				1CBE6A158E70BA5296C9E2AA /* Flap_average.cpp */,
+				1CBE681A25330C11DAD35A71 /* HLLESOA2D_QPX.cpp */,
+				1CBE61BED09360E961102192 /* MaxSpeedOfSound.h */,
+				1CBE61EFF70E674AF214DAA9 /* Test_Convection.h */,
+				1CBE642864187AD3B46498F7 /* WenoSOA2D_QPX.cpp */,
+				1CBE6EA657ECD8A0DB8DE80A /* Convection_CPP.cpp */,
+				1CBE6599540FCC783F529C60 /* Test_LocalKernel.h */,
+				1CBE60809856E018EF47E8AF /* MaxSpeedOfSound.cpp */,
+				1CBE64F41B221BC9B4B23C02 /* Test_Convection.cpp */,
+				1CBE65CBDB65DF6072E02EE7 /* Convection_CPP_omp.h */,
+				1CBE6FC46AD0F25819448BB9 /* MaxSpeedOfSound_QPX.h */,
+				1CBE63C4A2C97239240E9867 /* Convection_CPP_omp.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		1CBE6C7554C4F7E64562FFDE /* makefiles */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE679E76E9EF4116157E86 /* main.o */,
+				1CBE62C836B5379A20A8032C /* Makefile */,
+				1CBE62052142945AF8A0CC77 /* cloud.dat */,
+				1CBE6D0661FC9CA6BA201697 /* Profiler.o */,
+				1CBE67178B1A82DDA879A44B /* Histogram.o */,
+				1CBE6CF34818A58C50BD9F23 /* mpcf-cluster */,
+				1CBE6D59D2F8ACB546EB41CE /* cloud_config.dat */,
+			);
+			path = makefiles;
+			sourceTree = "<group>";
+		};
+		1CBE6F26903C92F6C2A3AA08 /* makefiles */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6B58B872F1ACC0869D40 /* main.o */,
+				1CBE6AC573947BBE06AB21CA /* run.sh */,
+				1CBE634575691D4C8CC921AE /* Makefile */,
+				1CBE6961A384CCED90FAD1FC /* Update.o */,
+				1CBE6C7BA6E53BD52BB6C0D6 /* mpcf-core */,
+				1CBE68B1E0F907747118B497 /* Flap_average.o */,
+				1CBE60A00D45DC1882159185 /* Convection_CPP.o */,
+				1CBE6652072BD0955CF7D4AC /* MaxSpeedOfSound.o */,
+				1CBE6237E96ED27ECDE8E824 /* Test_Convection.o */,
+				1CBE6999511C86D1257F080E /* Convection_CPP_omp.o */,
+			);
+			path = makefiles;
+			sourceTree = "<group>";
+		};
+		1CBE6F888B965E874FB566E4 /* MPCFnode */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6B17770DA1F376CDE744 /* source */,
+				1CBE6B191347A3B18B7C7D7A /* makefiles */,
+			);
+			name = MPCFnode;
+			path = ../../CubismApps/MPCFnode;
+			sourceTree = "<group>";
+		};
+		4B62D0651A01145D00A16101 = {
+			isa = PBXGroup;
+			children = (
+				4B62D0701A01145D00A16101 /* Cub */,
+				4B62D06F1A01145D00A16101 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B62D06F1A01145D00A16101 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B62D06E1A01145D00A16101 /* Cub */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B62D0701A01145D00A16101 /* Cub */ = {
+			isa = PBXGroup;
+			children = (
+				4B62D0781A01150E00A16101 /* Cubism */,
+				4B62D0711A01145D00A16101 /* main.cpp */,
+				1CBE61D2AC9D0B2AB58248DF /* CubismApps */,
+			);
+			path = Cub;
+			sourceTree = "<group>";
+		};
+		4B62D0781A01150E00A16101 /* Cubism */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE6B527BF8C05188887C27 /* source */,
+			);
+			name = Cubism;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B62D06D1A01145D00A16101 /* Cub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B62D0751A01145D00A16101 /* Build configuration list for PBXNativeTarget "Cub" */;
+			buildPhases = (
+				4B62D06A1A01145D00A16101 /* Sources */,
+				4B62D06B1A01145D00A16101 /* Frameworks */,
+				4B62D06C1A01145D00A16101 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cub;
+			productName = Cub;
+			productReference = 4B62D06E1A01145D00A16101 /* Cub */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B62D0661A01145D00A16101 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = AIM;
+				TargetAttributes = {
+					4B62D06D1A01145D00A16101 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 4B62D0691A01145D00A16101 /* Build configuration list for PBXProject "Cub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4B62D0651A01145D00A16101;
+			productRefGroup = 4B62D06F1A01145D00A16101 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B62D06D1A01145D00A16101 /* Cub */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B62D06A1A01145D00A16101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B62D0721A01145D00A16101 /* main.cpp in Sources */,
+				1CBE6EFF3AB70567063332CF /* Profiler.cpp in Sources */,
+				1CBE6AC56EF73D0119FC20D3 /* Histogram.cpp in Sources */,
+				1CBE6B79AEA8545D019D3368 /* Makefile in Sources */,
+				1CBE6E5C4C48EC42CA6F62CE /* main.cpp in Sources */,
+				1CBE6FB920137D4423364E5F /* Types.cpp in Sources */,
+				1CBE6825AEFB81D723D09B7D /* ._main.cpp in Sources */,
+				1CBE6870470FF88C235FF474 /* Test_SIC.cpp in Sources */,
+				1CBE6CED37DF0CCD742316CB /* Test_Flap.cpp in Sources */,
+				1CBE62D1211E65570DA1A1CF /* Test_Cloud.cpp in Sources */,
+				1CBE609D0027A67F3824E63F /* ._Test_Flap.cpp in Sources */,
+				1CBE6FD3E3DF84682AB9DF38 /* FlowStep_LSRK3.cpp in Sources */,
+				1CBE665A3603DB9DAACF1B80 /* ._FlowStep_LSRK3.cpp in Sources */,
+				1CBE68B9C24F301B8BFC9DEB /* Test_ShockBubble.cpp in Sources */,
+				1CBE65D8C273B2FC6C35403F /* Test_SteadyState.cpp in Sources */,
+				1CBE6697266D2F5DADA1B2B0 /* WaveletCompressor.cpp in Sources */,
+				1CBE6749B2E879B967279C56 /* ._Test_SteadyState.cpp in Sources */,
+				1CBE6FEA775DA2CEF2776740 /* Makefile in Sources */,
+				1CBE6A5F219ACDCFDC0EDA1F /* main-weno.cpp in Sources */,
+				1CBE611D8F5A8B89EB1C4018 /* playground-qpx.cpp in Sources */,
+				1CBE67860E314D9E43287AB0 /* Makefile in Sources */,
+				1CBE659D0DEA4BF9A56A1527 /* lz4.c in Sources */,
+				1CBE68AF5330BD34D3600DB0 /* Makefile in Sources */,
+				1CBE629B3FCBC78EDCBD7CA4 /* main.cpp in Sources */,
+				1CBE60096A62A088701F02E0 /* Makefile in Sources */,
+				1CBE62EE3E341B0F2DE830A7 /* main.cpp in Sources */,
+				1CBE6CFBE2E97F17184BA59B /* Makefile in Sources */,
+				1CBE6A99ED6F17BC515D4ABF /* main.cpp in Sources */,
+				1CBE6E20F1A6D7FFA5D1CCFB /* Makefile in Sources */,
+				1CBE6ABD6DFF793307525A87 /* main.cpp in Sources */,
+				1CBE6705376504C0DBAA6709 /* Makefile in Sources */,
+				1CBE6FAADAF17E5BE3CADDF9 /* main.cpp in Sources */,
+				1CBE6FC861E33B3D759D4364 /* Update.cpp in Sources */,
+				1CBE60E4C2BD90407A00CAB1 /* SourceTerm.cpp in Sources */,
+				1CBE6B78C78963A512183965 /* ._SourceTerm.cpp in Sources */,
+				1CBE688514FAF1A5555F74CE /* DivSOA2D_QPX.cpp in Sources */,
+				1CBE6BD35562C0A30808B693 /* Flap_average.cpp in Sources */,
+				1CBE6BCC445C41987BF801AD /* HLLESOA2D_QPX.cpp in Sources */,
+				1CBE6F4EECB8B4AE75F0C716 /* WenoSOA2D_QPX.cpp in Sources */,
+				1CBE6998BB4C187EE36899EA /* Convection_CPP.cpp in Sources */,
+				1CBE6A5A41143FA3DAF11675 /* MaxSpeedOfSound.cpp in Sources */,
+				1CBE6368B06839E399D67EAE /* Test_Convection.cpp in Sources */,
+				1CBE6F4FC763EF65F4F22923 /* Convection_CPP_omp.cpp in Sources */,
+				1CBE6EC86C07C2C4713D1EA1 /* Makefile in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4B62D0731A01145D00A16101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4B62D0741A01145D00A16101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4B62D0761A01145D00A16101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4B62D0771A01145D00A16101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B62D0691A01145D00A16101 /* Build configuration list for PBXProject "Cub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B62D0731A01145D00A16101 /* Debug */,
+				4B62D0741A01145D00A16101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B62D0751A01145D00A16101 /* Build configuration list for PBXNativeTarget "Cub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B62D0761A01145D00A16101 /* Debug */,
+				4B62D0771A01145D00A16101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B62D0661A01145D00A16101 /* Project object */;
+}

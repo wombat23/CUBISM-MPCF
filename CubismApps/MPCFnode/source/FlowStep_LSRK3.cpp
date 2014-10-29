@@ -144,7 +144,7 @@ void _process(const Real a, const Real dtinvh, vector<BlockInfo>& myInfo, FluidG
 }
 
 template < typename TSOS>
-Real _computeSOS_OMP(FluidGrid& grid,  bool bAwk)
+Real  _computeSOS_OMP(FluidGrid& grid,  bool bAwk)
 {
     vector<BlockInfo> vInfo = grid.getBlocksInfo();
     const int N = vInfo.size();
@@ -501,7 +501,7 @@ void FlowStep_LSRK3::set_constants()
     LSRK3data::ReportFreq = parser("-report").asInt(20);
 }
 
-Real FlowStep_LSRK3::operator()(const Real max_dt)
+Real FlowStep_LSRK3::operator()(const Real timeRemaining)
 {
     set_constants();
 	
@@ -521,7 +521,7 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
 	
 	cout << "sos take " << t_sos << " sec" << endl;
 	
-    double dt = min(max_dt, CFL*h/maxSOS);
+    double dt = min(TEND-tCurrent, CFL*h/maxSOS);
     cout << "sos max is " << setprecision(8) << maxSOS << ", " << "dt is "<< dt << "\n";
     
     if (maxSOS > 1e6)

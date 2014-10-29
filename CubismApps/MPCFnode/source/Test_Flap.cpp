@@ -183,7 +183,7 @@ void Test_Flap::run()
 		profiler.push_start("EVOLVE");
 
         stepper->set_current_time(t);
-		dt = (*stepper)(TEND-t);
+		dt = (*stepper)(TEND,t);
 
 		profiler.pop_stop();
 		
@@ -289,7 +289,7 @@ void Test_Flap::setup()
 	
 	assert(grid != NULL);
 	
-	stepper = new FlowStep_LSRK3(*grid, CFL, Simulation_Environment::GAMMA1, Simulation_Environment::GAMMA2, parser, VERBOSITY, &profiler, Simulation_Environment::PC1, Simulation_Environment::PC2, bAWK);
+stepper = new FlowStep_LSRK3(*grid, CFL, Simulation_Environment::GAMMA1, Simulation_Environment::GAMMA2, parser, VERBOSITY, &profiler, Simulation_Environment::PC1, Simulation_Environment::PC2, bAWK);
 	
 	if(bRESTART)
 	{
