@@ -142,8 +142,8 @@ public:
         Simulation_Environment::EPSILON = smoothlength;
     }
     
-    Real operator()(const Real max_dt);
-    
+    Real operator()(const Real timeRemaining);
+
     void set_current_time(const Real _current_time) {current_time=_current_time;}
     
     void set_constants();

@@ -185,7 +185,6 @@ void Test_SteadyState::_setup_constants()
 	DUMPPERIOD = parser("-dumpperiod").asInt();
 	SAVEPERIOD = parser("-saveperiod").asInt();
 	CFL = parser("-cfl").asDouble();
-	MOLLFACTOR = parser("-mollfactor").asInt();
     
 	parser.unset_strict_mode();
 	
@@ -206,7 +205,6 @@ void Test_SteadyState::_setup_constants()
 	assert(BPDZ >= 1);
 	assert(DUMPPERIOD > 0);
 	assert(CFL > 0 && CFL<1);
-	assert(MOLLFACTOR > 0);
 	
     Simulation_Environment::PC1 = parser("-pc1").asDouble(0);
 	Simulation_Environment::PC2 = parser("-pc2").asDouble(0);
