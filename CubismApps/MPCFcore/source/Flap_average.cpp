@@ -44,10 +44,12 @@ void Flap_average::compute(const Real * const src, const int gptfloats,  Real & 
                     {
                         const Real rho = src[i];
                         const Real ru  = src[i+1];
+			const Real rv  = src[i+2];
+			const Real rw  = src[i+3];
                         const Real e   = src[i+4];
 	                    rAvg_local += rho;
         	            uAvg_local += ru/rho;
-                	    Real p = (e - .5*ru*ru/rho)/gamma;
+                	    Real p = (gamma-1)*(e - .5*(ru*ru+rv*rv+rw*rw)/rho);
                     	pAvg_local += p;
                     	tAvg_local += p/(R*rho);
 			N_local++;

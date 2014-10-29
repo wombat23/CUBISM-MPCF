@@ -64,7 +64,8 @@ public:
         BoundaryCondition<BlockType,ElementTypeBlock,allocator> bc(this->m_stencilStart, this->m_stencilEnd, this->m_cacheBlock);
         
         if (info.index[0]==0)           bc.template applyBC_reflecting<0,0>();
-        if (info.index[0]==this->NX-1)  bc.template applyBC_flap_closed<0,1>();//bc.template applyBC_reflecting<0,1>();	
+	if (info.index[0]==this->NX-1)  bc.template applyBC_reflecting<0,1>();
+//if (info.index[0]==this->NX-1)  bc.template applyBC_flap_closed<0,1>();//bc.template applyBC_reflecting<0,1>();	
 //        if (info.index[0]==this->NX-1)  bc.template applyBC_flap<0,1>(pAvg,rAvg,uAvg,dt,gamma,phi,dphidt);
         if (info.index[1]==0)			bc.template applyBC_reflecting<1,0>();
         if (info.index[1]==this->NY-1)	bc.template applyBC_reflecting<1,1>();
