@@ -72,7 +72,7 @@ void Test_Flap::_ic(FluidGrid& grid)
 void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t, const Real dt)
 {
     vector<BlockInfo> vInfo = grid.getBlocksInfo();
-    double rInt=0., uInt=0., vInt=0., wInt=0., eInt=0., vol=0., ke=0., r2Int=0., mach_max=-HUGE_VAL, p_max=-HUGE_VAL;
+    double rInt=0., uInt=0., vInt=0., wInt=0., eInt=0., ke=0., mach_max=-HUGE_VAL, p_max=-HUGE_VAL;
     const double h = vInfo[0].h_gridpoint;
     const double h3 = h*h*h;
     double wall_p_max=-HUGE_VAL;
@@ -91,8 +91,6 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
                     vInt += b(ix, iy, iz).v;
                     wInt += b(ix, iy, iz).w;
                     eInt += b(ix, iy, iz).energy;
-                    vol  += b(ix,iy,iz).G>0.5*(1/(Simulation_Environment::GAMMA1-1)+1/(Simulation_Environment::GAMMA2-1))? 1:0;
-                    r2Int += b(ix, iy, iz).rho*(1-min(max((b(ix,iy,iz).G-1/(Simulation_Environment::GAMMA1-2))/(1/(Simulation_Environment::GAMMA1-1)-1/(Simulation_Environment::GAMMA2-1)),(Real)0),(Real)1));
                     ke   += 0.5/b(ix, iy, iz).rho * (b(ix, iy, iz).u*b(ix, iy, iz).u+b(ix, iy, iz).v*b(ix, iy, iz).v+b(ix, iy, iz).w*b(ix, iy, iz).w);
      
                     const double pressure = (b(ix, iy, iz).energy - 0.5/b(ix, iy, iz).rho * (b(ix, iy, iz).u*b(ix, iy, iz).u+b(ix, iy, iz).v*b(ix, iy, iz).v+b(ix, iy, iz).w*b(ix, iy, iz).w) - b(ix, iy, iz).P)/b(ix,iy,iz).G;
@@ -108,13 +106,9 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
     }
     
     FILE * f = fopen("integrals.dat", "a");
-    fprintf(f, "%d %e %e %e %e %e %e %e %e %e %e %e %e %e %e\n", step_id, t, dt, rInt*h3, uInt*h3, 
-            vInt*h3, wInt*h3, eInt*h3, vol*h3, ke*h3, r2Int*h3, mach_max, p_max, pow(0.75*vol*h3/M_PI,1./3.), wall_p_max);
+    fprintf(f, "%d %e %e %e %e %e %e %e %e %e %e %e\n", step_id, t, dt, rInt*h3, uInt*h3, 
+            vInt*h3, wInt*h3, eInt*h3, ke*h3, mach_max, p_max, wall_p_max);
     fclose(f);
-    
-    FILE * f2 = fopen("centerline_velocities.dat", "a");
-    FILE * f3 = fopen("p_center.dat", "a");
-    FILE * f4 = fopen("interface.dat","a");
     
     Lab lab;
     const int ss[3]={0,0,0};
@@ -127,6 +121,7 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
     
     Real x[3];
     
+#pragma omp parallel for reduction(+:p_wall)
     for(int i=0; i<(int)vInfo.size(); i++)
     {        
         BlockInfo info = vInfo[i];
@@ -148,101 +143,12 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
                     {    
                         const double ke = 0.5*(pow(b(ix, iy, iz).u,2)+pow(b(ix, iy, iz).v,2)+pow(b(ix, iy, iz).w,2))/b(ix, iy, iz).rho;
 
-                        p_wall = (b(ix, iy, iz).energy - ke -  b(ix, iy, iz).P)/b(ix, iy, iz).G;
+                        p_wall += (b(ix, iy, iz).energy - ke)/b(ix,iy,iz).G;
                     }
                     
-                    if (abs(b(ix,iy,iz).G-2.35)<0.1) {
-                        iso_gamma.push_back(x[0]);
-                    }
                     
-                    if( Simulation_Environment::heaviside(lab(ix, iy, iz).G-0.5*(1/(Simulation_Environment::GAMMA2-1)+1/(Simulation_Environment::GAMMA1-1)))*                        Simulation_Environment::heaviside(lab(ix+1, iy, iz).G-0.5*(1/(Simulation_Environment::GAMMA2-1)+1/(Simulation_Environment::GAMMA1-1))) == 0 &&
-                       !(Simulation_Environment::heaviside(lab(ix, iy, iz).G-0.5*(1/(Simulation_Environment::GAMMA2-1)+1/(Simulation_Environment::GAMMA1-1)))==0 && 
-                         Simulation_Environment::heaviside(lab(ix+1, iy, iz).G-0.5*(1/(Simulation_Environment::GAMMA2-1)+1/(Simulation_Environment::GAMMA1-1)))==0 ) ) 
-                    {                   
-                        const double pressure = (b(ix, iy, iz).energy - 0.5/b(ix, iy, iz).rho * (b(ix, iy, iz).u*b(ix, iy, iz).u+b(ix, iy, iz).v*b(ix, iy, iz).v+b(ix, iy, iz).w*b(ix, iy, iz).w) - b(ix, iy, iz).P)/b(ix,iy,iz).G;
-
-                        velocities.push_back(pair<Real,Real>(sqrt(6.59*b(ix,iy,iz).rho*pressure),b(ix, iy, iz).u/b(ix, iy, iz).rho));
-                    }
                 }
     }
-    
-    std::sort(velocities.begin(), velocities.end(), sort_pred());
-    std::sort(iso_gamma.begin(),iso_gamma.end());
-
-    if (velocities.size()>0) fprintf(f2, "%d %f %e %e %f\n", step_id, t, velocities.front().second, velocities.back().second, velocities.front().first);
-    if (iso_gamma.size()>0) fprintf(f4, "%d %e %f %f\n", step_id, t, iso_gamma.front(), iso_gamma.back());
-
-    fprintf(f3, "%d %e %e\n", step_id, t, p_wall);
-    
-    fclose(f4);
-    fclose(f3);
-    fclose(f2);
-}
-
-void Test_Flap::_analysis(FluidGrid& grid, const int step_id)
-{
-    std::stringstream streamer;
-    streamer<<"centerline_pressure-"<<step_id<<".dat";
-    FILE * f = fopen(streamer.str().c_str(), "w");
-    streamer.str("");
-    
-    vector<BlockInfo> vInfo = grid.getBlocksInfo();
-    Real x[3];
-    
-    for(int i=0; i<(int)vInfo.size(); i++)
-    {        
-        BlockInfo info = vInfo[i];
-        
-        if (info.index[1]!=grid.getBlocksPerDimension(1)/2) continue;
-        
-        FluidBlock& b = *(FluidBlock*)info.ptrBlock;
-        
-        for(int iz=0; iz<FluidBlock::sizeZ; iz++)
-            for(int iy=0; iy<FluidBlock::sizeY; iy++)
-                for(int ix=0; ix<FluidBlock::sizeX; ix++)
-                {
-                    if (iy!=0 || iz!=0) continue;
-                    
-                    info.pos(x,ix,iy,iz);
-                    
-                    const double ke = 0.5*(pow(b(ix, iy, iz).u,2)+pow(b(ix, iy, iz).v,2)+pow(b(ix, iy, iz).w,2))/b(ix, iy, iz).rho;
-                    
-                    const double pressure = (b(ix, iy, iz).energy - ke -  b(ix, iy, iz).P)/b(ix, iy, iz).G;
-
-                    fprintf(f, "%e %e\n", x[0], pressure);
-                }
-    }    
-    
-    fclose(f); 
-    
-    streamer<<"wall_pressure-"<<step_id<<".dat";
-    f = fopen(streamer.str().c_str(), "w");
-    streamer.str("");
-    
-    for(int i=0; i<(int)vInfo.size(); i++)
-    {        
-        BlockInfo info = vInfo[i];
-        
-        if (info.index[0]!=grid.getBlocksPerDimension(0)-1 || info.index[2]!=grid.getBlocksPerDimension(2)/2) continue;
-        
-        FluidBlock& b = *(FluidBlock*)info.ptrBlock;
-        
-        for(int iz=0; iz<FluidBlock::sizeZ; iz++)
-            for(int iy=0; iy<FluidBlock::sizeY; iy++)
-                for(int ix=0; ix<FluidBlock::sizeX; ix++)
-                {
-                    if (ix!=FluidBlock::sizeX-1 || iz!=0) continue;
-                    
-                    info.pos(x,ix,iy,iz);
-                    
-                    const double ke = 0.5*(pow(b(ix, iy, iz).u,2)+pow(b(ix, iy, iz).v,2)+pow(b(ix, iy, iz).w,2))/b(ix, iy, iz).rho;
-                    const double pressure = (b(ix, iy, iz).energy - ke -  b(ix, iy, iz).P)/b(ix, iy, iz).G;
-                    
-                    fprintf(f, "%e %e\n", x[1], pressure);
-                }
-    }
-    
-    fclose(f);
 }
 
 void Test_Flap::run()
@@ -264,12 +170,6 @@ void Test_Flap::run()
 			_vp(*grid);			
 			profiler.pop_stop();
         }
-        if(step_id%ANALYSISPERIOD == 0)
-        {
-            profiler.push_start("DUMP ANALYSIS");
-            _analysis(*grid, step_id);
-            profiler.pop_stop();
-		}
         
 		if (step_id%SAVEPERIOD == 0) _save();
         

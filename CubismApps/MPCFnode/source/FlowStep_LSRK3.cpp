@@ -320,9 +320,6 @@ Real _computeFLAP_omp(FluidGrid& grid)
         }
     }
     
-	cout << global_pAvg << endl;
-	cout << global_n << endl;
-
     global_rAvg /= global_n;
     global_pAvg /= global_n;
     global_uAvg /= global_n;
