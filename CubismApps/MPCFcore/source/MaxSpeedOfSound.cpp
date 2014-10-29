@@ -43,7 +43,7 @@ Real MaxSpeedOfSound_CPP::compute(const Real * const src, const int gptfloats) c
 
 		const Real p = (e - (u*u + v*v + w*w)*(0.5/r) - P)/G;
 
-  		const Real c = sqrt(((p+P)/G+p)/r);
+		const Real c = sqrt(((p+P)/G+p)/r);
 		
 		assert(!isnan(p));
 		assert(c > 0 && !isnan(c));

@@ -57,11 +57,11 @@ void Test_Flap::_ic(FluidGrid& grid)
 												b(ix, iy, iz).u        = 0.0;                        
 												b(ix, iy, iz).v        = 0.0;
 												b(ix, iy, iz).w        = 0.0;
-												b(ix, iy, iz).energy   = 0.5*(b(ix, iy, iz).u*b(ix, iy, iz).u
-															+ b(ix, iy, iz).v*b(ix, iy, iz).v
-															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + (gamma-1)*pInit;
 												b(ix, iy, iz).G        = 1.0/(gamma-1.0);
 												b(ix, iy, iz).P        = 0.0;
+												b(ix, iy, iz).energy   = 0.5*(b(ix, iy, iz).u*b(ix, iy, iz).u
+															+ b(ix, iy, iz).v*b(ix, iy, iz).v
+															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + b(ix, iy, iz).G*pInit;
                     }
         }		
 	}	
