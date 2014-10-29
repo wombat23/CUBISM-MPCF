@@ -231,6 +231,26 @@ public:
 				}
 	}
 
+        template<int dir, int side>
+        void applyBC_flap_closed()
+        {
+                _setup<dir,side>();
+
+                for(int iz=s[2]; iz<e[2]; iz++)
+                        for(int iy=s[1]; iy<e[1]; iy++)
+                                for(int ix=s[0]; ix<e[0]; ix++)
+                                {
+                                        (*this)(ix,iy,iz) = (*this)(dir==0? (side==0? 0:TBlock::sizeX-1):ix,
+
+           dir==1? (side==0? 0:TBlock::sizeY-1):iy,
+
+           dir==2? (side==0? 0:TBlock::sizeZ-1):iz);
+
+					(*this)(ix,iy,iz).u = 0;
+                                }
+        }
+
+
     template<int dir, int side>
     void applyBC_flap(const Real pAvg, const Real rAvg, const Real uAvg, const Real dt, const Real gamma, Real & phi, Real & dphidt)
     {
