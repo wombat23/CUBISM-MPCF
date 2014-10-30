@@ -142,7 +142,7 @@ public:
         Simulation_Environment::EPSILON = smoothlength;
     }
     
-    Real operator()(const Real timeRemaining);
+    Real operator()(const Real max_dt);
 
     void set_current_time(const Real _current_time) {current_time=_current_time;}
     
