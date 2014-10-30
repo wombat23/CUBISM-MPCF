@@ -124,15 +124,16 @@ int main (int argc, const char ** argv)
     else if( parser("-sim").asString() == "sic" )
         sim = new Test_SIC(argc, argv);
     else if( parser("-sim").asString() == "cloud" )
-      sim = new Test_Cloud(argc, argv);
+        sim = new Test_Cloud(argc, argv);
     else if ( parser("-sim").asString() == "flap" )
-	sim = new Test_Flap(argc,argv);
+        sim = new Test_Flap(argc,argv);
 	else
 	{
 		printf("Study case not defined!\n"); 
 		abort();
 	}
 	
+    
 	sim->setup();
 	
 	double wallclock;
