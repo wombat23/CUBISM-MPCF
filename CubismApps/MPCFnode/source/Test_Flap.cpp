@@ -199,7 +199,7 @@ void Test_Flap::run()
 		profiler.push_start("EVOLVE");
 
         stepper->set_current_time(t);
-		dt = (*stepper)(TEND-t);
+		dt = (*stepper)(TEND-t, inputStructVals);
 
 		profiler.pop_stop();
 		
@@ -236,32 +236,37 @@ void Test_Flap::_setup_constants()
     
     parser.unset_strict_mode();
     
-    pInit = parser("-pInit").asDouble(100000);
-    pCrit = parser("-pCrit").asDouble(6000);
-    TInit = parser("-tInit").asDouble(300);
-    
-    tSM  = parser("-tSM").asDouble(0.015); // time values for the functions of state
-    tSE  = parser("-tSE").asDouble(0.015);
-    
-    iI   = parser("-iI").asDouble(1250000); // arc current
-    iU   = parser("-iU").asDouble(240); // arc voltage
-    
-    arcX = parser("-arcX").asDouble(0.1); // position of source
-    arcY = parser("-arcY").asDouble(arcX);
-    arcZ = parser("-arcZ").asDouble(arcX);
-    
-    arcWidth = parser("-arcWidth").asDouble(0.1);
-    arcHeight = parser("-arcHeight").asDouble(arcWidth);
-    
-    zetaGrid = parser("-zetaGrid").asDouble(0.219);
-    threshP  = parser("-threshP").asDouble(6000);
-    
-    flRho = parser("-flRho").asDouble(3500);
-    flS   = parser("-flS").asDouble(0.022);
-    flL   = parser("-flL").asDouble(0.850);
+    inputStructVals.pInit = pInit = parser("-pInit").asDouble(100000);
+    inputStructVals.pCrit = pCrit = parser("-pCrit").asDouble(6000);
+    inputStructVals.TInit = TInit = parser("-tInit").asDouble(300);
 
-		gamma   = parser("-gamma").asDouble(1.4);
-		R_star  = parser("-Rstar").asDouble(1.38e-23 / 4.82e-26); // k_Boltzman/molecular weight of air
+    inputStructVals.tSM = tSM  = parser("-tSM").asDouble(0.015); // time values for the functions of state
+    inputStructVals.tSE = tSE  = parser("-tSE").asDouble(0.015);
+
+
+    inputStructVals.iI = iI   = parser("-iI").asDouble(1250000); // arc current
+    inputStructVals.iU = iU   = parser("-iU").asDouble(240); // arc voltage
+
+
+    inputStructVals.arcX = arcX = parser("-arcX").asDouble(0.1); // position of source
+    inputStructVals.arcY = arcY = parser("-arcY").asDouble(arcX);
+    inputStructVals.arcZ = arcZ = parser("-arcZ").asDouble(arcX);
+
+
+    inputStructVals.arcWidth = arcWidth = parser("-arcWidth").asDouble(0.1);
+    inputStructVals.arcHeight =arcHeight = parser("-arcHeight").asDouble(arcWidth);
+
+
+    inputStructVals.zetaGrid = zetaGrid = parser("-zetaGrid").asDouble(0.219);
+    inputStructVals.threshP = threshP  = parser("-threshP").asDouble(6000);
+
+
+    inputStructVals.flRho = flRho = parser("-flRho").asDouble(3500);
+    inputStructVals.flS = flS   = parser("-flS").asDouble(0.022);
+    inputStructVals.flL = flL   = parser("-flL").asDouble(0.850);
+
+    inputStructVals.gamma = gamma   = parser("-gamma").asDouble(1.4);
+    inputStructVals.R_star = R_star  = parser("-Rstar").asDouble(1.38e-23 / 4.82e-26); // k_Boltzman/molecular weight of air
 
     bASCIIFILES = parser("-ascii").asBool(false);
 

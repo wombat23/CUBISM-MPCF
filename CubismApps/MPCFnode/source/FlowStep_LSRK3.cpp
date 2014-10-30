@@ -49,6 +49,7 @@ using namespace std;
 
 #include "FlowStep_LSRK3.h"
 #include "Tests.h"
+#include "SourceTerm.h"
 
 namespace LSRK3data
 {
@@ -339,6 +340,39 @@ Real FlowStep_LSRK3::_computeFLAP()
     return pAvg;
 }
 
+
+template < typename SOURCETYPE>
+void    _sourceAdd_omp(FluidGrid& grid, InputStructVals inputStructVals, Real current_time)
+{
+    vector<BlockInfo> vInfo = grid.getBlocksInfo();
+    const int N = vInfo.size();
+    const BlockInfo * const ary = &vInfo.front();
+
+
+#pragma omp parallel
+    {
+        SOURCETYPE kernel;
+
+#pragma omp for schedule(runtime)
+        for (size_t i=0; i<N; ++i)
+        {
+            BlockInfo blockInfo = (BlockInfo)ary[i];
+            FluidBlock & block = *(FluidBlock *)blockInfo.ptrBlock;
+
+            Real pos[3] = {
+                    blockInfo.h * blockInfo.index[0],
+                    blockInfo.h * blockInfo.index[1],
+                    blockInfo.h * blockInfo.index[2],
+            };
+
+            kernel.compute(pos, blockInfo.h_gridpoint, &block.data[0][0][0].rho, FluidBlock::gptfloats, current_time, inputStructVals);
+        }
+    }
+
+}
+
+
+
 template<typename Kflow, typename Kupdate>
 struct LSRKstep
 {
@@ -501,7 +535,7 @@ void FlowStep_LSRK3::set_constants()
     LSRK3data::ReportFreq = parser("-report").asInt(20);
 }
 
-Real FlowStep_LSRK3::operator()(const Real max_dt)
+Real FlowStep_LSRK3::operator()(Real max_dt,  InputStructVals inputStructVals)
 {
     set_constants();
 	
@@ -550,11 +584,18 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
         cout << "combination not supported yet" << endl;
         abort();
     }
-    
-    	const Real pressure_avg=_computeFLAP();    
+
+    _sourceAdd_omp<SourceTerm>(grid, inputStructVals,current_time);
+
+    const Real pressure_avg=_computeFLAP();
 	cout << "Average pressure at flap " << pressure_avg << endl;    
 
     LSRK3data::step_id++;
     
     return dt;
+}
+
+
+Real FlowStep_LSRK3::operator()(const Real max_dt)  {
+    return  0;
 }

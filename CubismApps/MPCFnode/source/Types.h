@@ -471,3 +471,30 @@ typedef GridMorton<FluidGridBase> FluidGrid;
 #else
 typedef FluidGridBase FluidGrid;
 #endif
+
+
+typedef struct{
+
+    Real pCrit;
+    Real pInit;
+    Real pAmbient;
+    Real tAmbient;
+    Real TInit;
+    Real tSM;
+    Real iI;
+    Real iU;
+    Real tSE;
+    Real arcX;
+    Real arcY;
+    Real arcZ;
+    Real arcWidth;
+    Real arcHeight;
+    Real zetaGrid;
+    Real threshP;
+    Real flRho;
+    Real flS;
+    Real flL;
+    Real gamma;
+    Real R_star;
+
+} InputStructVals;
