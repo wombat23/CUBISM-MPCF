@@ -199,7 +199,7 @@ void Test_Flap::run()
 		profiler.push_start("EVOLVE");
 
         stepper->set_current_time(t);
-		dt = (*stepper)(TEND-t);
+		dt = (*stepper)(TEND-t, inputStructVals);
 
 		profiler.pop_stop();
 		
