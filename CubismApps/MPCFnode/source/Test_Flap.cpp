@@ -118,7 +118,8 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
     vector<pair<Real,Real> > velocities;
     vector<Real> iso_gamma;
     Real p_wall=0;
-    
+	int wall_size=0;   
+ 
     Real x[3];
     
 #pragma omp parallel for reduction(+:p_wall)
@@ -144,11 +145,18 @@ void Test_Flap::_dumpStatistics(FluidGrid& grid, const int step_id, const Real t
                         const double ke = 0.5*(pow(b(ix, iy, iz).u,2)+pow(b(ix, iy, iz).v,2)+pow(b(ix, iy, iz).w,2))/b(ix, iy, iz).rho;
 
                         p_wall += (b(ix, iy, iz).energy - ke)/b(ix,iy,iz).G;
+			wall_size++;
                     }
-                    
-                    
                 }
     }
+
+	p_wall /= wall_size;
+	cout << "p_wall " << p_wall << endl;
+
+
+    FILE * fpressure = fopen("pressure.dat", "a");
+    fprintf(fpressure, "%d %e %e\n", step_id, t, p_wall);
+    fclose(fpressure);
 }
 
 void Test_Flap::run()
