@@ -342,17 +342,11 @@ Real FlowStep_LSRK3::_computeFLAP()
 
 
 template < typename SOURCETYPE>
-void _sourceAdd_omp(FluidGrid& grid)
+void    _sourceAdd_omp(FluidGrid& grid, InputStructVals inputStructVals, Real current_time)
 {
     vector<BlockInfo> vInfo = grid.getBlocksInfo();
     const int N = vInfo.size();
     const BlockInfo * const ary = &vInfo.front();
-
-    Real global_rAvg = 0;
-    Real global_pAvg = 0;
-    Real global_uAvg = 0;
-    Real global_tAvg = 0;
-    int  global_n = 0;
 
 
 #pragma omp parallel
@@ -364,23 +358,17 @@ void _sourceAdd_omp(FluidGrid& grid)
         {
             BlockInfo blockInfo = (BlockInfo)ary[i];
             FluidBlock & block = *(FluidBlock *)blockInfo.ptrBlock;
-            Real pos[3];
-            blockInfo.pos(pos, blockInfo.index[0], blockInfo.index[1], blockInfo.index[2]);
 
-        #pragma omp critical
-            std::cout << "ind = [" << blockInfo.index[0] << " , " <<  blockInfo.index[1] << " , " <<  blockInfo.index[2] << "] :: "
-                      <<  "[" << pos[0] << " , " << pos[1] << " , " << pos[2] << "]\n";
-            //TODO : find block position in 3D dimension
-            // compute(pos, src, gptfloatts)
-//            kernel.compute(&block.data[0][0][0].rho, FluidBlock::gptfloats, global_pAvg, global_rAvg, global_uAvg, global_tAvg, global_n, grid.getBlocksPerDimension(0),vInfo[i].index[0]);
+            Real pos[3] = {
+                    blockInfo.h * blockInfo.index[0],
+                    blockInfo.h * blockInfo.index[1],
+                    blockInfo.h * blockInfo.index[2],
+            };
+
+            kernel.compute(pos, blockInfo.h_gridpoint, &block.data[0][0][0].rho, FluidBlock::gptfloats, current_time, inputStructVals);
         }
     }
 
-}
-
-void FlowStep_LSRK3::_sourceAdd()
-{
-    _sourceAdd_omp<SourceTerm>(grid);
 }
 
 
@@ -547,7 +535,7 @@ void FlowStep_LSRK3::set_constants()
     LSRK3data::ReportFreq = parser("-report").asInt(20);
 }
 
-Real FlowStep_LSRK3::operator()(const Real max_dt)
+Real FlowStep_LSRK3::operator()(Real max_dt,  InputStructVals inputStructVals)
 {
     set_constants();
 	
@@ -597,7 +585,7 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
         abort();
     }
 
-    _sourceAdd();
+    _sourceAdd_omp<SourceTerm>(grid, inputStructVals,current_time);
 
     const Real pressure_avg=_computeFLAP();
 	cout << "Average pressure at flap " << pressure_avg << endl;    
@@ -605,4 +593,9 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
     LSRK3data::step_id++;
     
     return dt;
+}
+
+
+Real FlowStep_LSRK3::operator()(const Real max_dt)  {
+    return  0;
 }

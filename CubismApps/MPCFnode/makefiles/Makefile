@@ -6,7 +6,7 @@ VPATH := ../source/ ../../MPCFcore/source/ ../../../Cubism/source/
 .DEFAULT_GOAL := mpcf-node
 
 OBJECTS = main.o FlowStep_LSRK3.o Test_SteadyState.o Test_Flap.o Test_ShockBubble.o  Types.o Test_SIC.o Test_Cloud.o WaveletCompressor.o 
-OBJECTS += ../../MPCFcore/makefiles/Convection_CPP.o ../../MPCFcore/makefiles/Update.o ../../MPCFcore/makefiles/MaxSpeedOfSound.o  ../../MPCFcore/makefiles/Flap_average.o
+OBJECTS += ../../MPCFcore/makefiles/Convection_CPP.o ../../MPCFcore/makefiles/Update.o ../../MPCFcore/makefiles/MaxSpeedOfSound.o  ../../MPCFcore/makefiles/Flap_average.o ../../MPCFcore/makefiles/SourceTerm.o
 
 ifeq "$(qpx)" "1"
 	OBJECTS += ../../MPCFcore/makefiles/WenoSOA2D_QPX.o
