@@ -120,6 +120,7 @@ protected:
     
     Real _computeSOS(bool bAwk=false);
     Real _computeFLAP();
+    void _sourceAdd();
 
     ArgumentParser parser;
     Profiler * profiler;
