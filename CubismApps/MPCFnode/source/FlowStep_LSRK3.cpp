@@ -49,6 +49,7 @@ using namespace std;
 
 #include "FlowStep_LSRK3.h"
 #include "Tests.h"
+#include "SourceTerm.h"
 
 namespace LSRK3data
 {
@@ -339,6 +340,51 @@ Real FlowStep_LSRK3::_computeFLAP()
     return pAvg;
 }
 
+
+template < typename SOURCETYPE>
+void _sourceAdd_omp(FluidGrid& grid)
+{
+    vector<BlockInfo> vInfo = grid.getBlocksInfo();
+    const int N = vInfo.size();
+    const BlockInfo * const ary = &vInfo.front();
+
+    Real global_rAvg = 0;
+    Real global_pAvg = 0;
+    Real global_uAvg = 0;
+    Real global_tAvg = 0;
+    int  global_n = 0;
+
+
+#pragma omp parallel
+    {
+        SOURCETYPE kernel;
+
+#pragma omp for schedule(runtime)
+        for (size_t i=0; i<N; ++i)
+        {
+            BlockInfo blockInfo = (BlockInfo)ary[i];
+            FluidBlock & block = *(FluidBlock *)blockInfo.ptrBlock;
+            Real pos[3];
+            blockInfo.pos(pos, blockInfo.index[0], blockInfo.index[1], blockInfo.index[2]);
+
+        #pragma omp critical
+            std::cout << "ind = [" << blockInfo.index[0] << " , " <<  blockInfo.index[1] << " , " <<  blockInfo.index[2] << "] :: "
+                      <<  "[" << pos[0] << " , " << pos[1] << " , " << pos[2] << "]\n";
+            //TODO : find block position in 3D dimension
+            // compute(pos, src, gptfloatts)
+//            kernel.compute(&block.data[0][0][0].rho, FluidBlock::gptfloats, global_pAvg, global_rAvg, global_uAvg, global_tAvg, global_n, grid.getBlocksPerDimension(0),vInfo[i].index[0]);
+        }
+    }
+
+}
+
+void FlowStep_LSRK3::_sourceAdd()
+{
+    _sourceAdd_omp<SourceTerm>(grid);
+}
+
+
+
 template<typename Kflow, typename Kupdate>
 struct LSRKstep
 {
@@ -550,8 +596,10 @@ Real FlowStep_LSRK3::operator()(const Real max_dt)
         cout << "combination not supported yet" << endl;
         abort();
     }
-    
-    	const Real pressure_avg=_computeFLAP();    
+
+    _sourceAdd();
+
+    const Real pressure_avg=_computeFLAP();
 	cout << "Average pressure at flap " << pressure_avg << endl;    
 
     LSRK3data::step_id++;
