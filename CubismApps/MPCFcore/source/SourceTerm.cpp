@@ -63,7 +63,8 @@ void SourceTerm::compute(
                     inputStructVals.arcWidth, inputStructVals.arcHeight)
                     ) {
 
-                src[i+4] += 10000;
+		//src[i]   += 1000;
+                src[i+4] += 1000;
             }
 
         }

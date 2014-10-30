@@ -476,8 +476,8 @@ void Convection_CPP::_char_vel(const TempSOA& rm, const TempSOA& rp,
 	for(int iy=0; iy<TempSOA::NY; iy++)
 		for(int ix=0; ix<SizeX; ix++)
 		{
-			const Real cminus = mysqrt(((pm(ix, iy)+Pm(ix,iy))/Gm(ix,iy)+pm(ix, iy))/rm(ix, iy));
-			const Real cplus  = mysqrt(((pp(ix, iy)+Pp(ix,iy))/Gp(ix,iy)+pp(ix, iy))/rp(ix, iy));
+			Real cminus = mysqrt(((pm(ix, iy)+Pm(ix,iy))/Gm(ix,iy)+pm(ix, iy))/rm(ix, iy));
+			Real cplus  = mysqrt(((pp(ix, iy)+Pp(ix,iy))/Gp(ix,iy)+pp(ix, iy))/rp(ix, iy));
 
             outm.ref(ix, iy) = min(vp(ix, iy) - cplus, vm(ix, iy) - cminus);
 			outp.ref(ix, iy) = max(vp(ix, iy) + cplus, vm(ix, iy) + cminus);
