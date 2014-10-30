@@ -32,7 +32,7 @@
 
 using namespace std;
 
-Simulation * sim = NULL;
+//Simulation * sim = NULL;
 
 #ifdef _GLUT_VIZ 
 struct VisualSupport
@@ -116,24 +116,27 @@ int main (int argc, const char ** argv)
 		_MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_ON);
 	}
 #endif
-	
-	if( parser("-sim").asString() == "steady" )
-		sim = new Test_SteadyState(argc, argv);
-	else if( parser("-sim").asString() == "sb" )
-		sim = new Test_ShockBubble(argc, argv);
-    else if( parser("-sim").asString() == "sic" )
-        sim = new Test_SIC(argc, argv);
-    else if( parser("-sim").asString() == "cloud" )
-        sim = new Test_Cloud(argc, argv);
-    else if ( parser("-sim").asString() == "flap" )
+
+    //	if( parser("-sim").asString() == "steady" )
+//		sim = new Test_SteadyState(argc, argv);
+//	else if( parser("-sim").asString() == "sb" )
+//		sim = new Test_ShockBubble(argc, argv);
+//    else if( parser("-sim").asString() == "sic" )
+//        sim = new Test_SIC(argc, argv);
+//    else if( parser("-sim").asString() == "cloud" )
+//        sim = new Test_Cloud(argc, argv);
+//    else
+
+    Test_Flap *sim = NULL;
+    if ( parser("-sim").asString() == "flap" )
         sim = new Test_Flap(argc,argv);
-	else
-	{
-		printf("Study case not defined!\n"); 
+    else
+    {
+        printf("Study case not defined!\n");
 		abort();
 	}
-	
-    
+
+
 	sim->setup();
 	
 	double wallclock;

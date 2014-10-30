@@ -10,10 +10,12 @@
 
 #include "Test_SteadyState.h"
 
+
+
 class Test_Flap: public Test_SteadyState
 {
     void _ic(FluidGrid& grid);
-    
+
 protected:
 	Real pCrit,    pInit;
 	Real pAmbient, tAmbient;
@@ -22,14 +24,16 @@ protected:
     Real arcX,arcY,arcZ, arcWidth, arcHeight;
     Real zetaGrid, threshP, flRho, flS, flL;
 		Real gamma, R_star;
-    
+
 
     void _setup_constants();
     void _dumpStatistics(FluidGrid& grid, const int counter, const Real t, const Real dt);
     void _analysis(FluidGrid& grid, const int stepid);
-    
-public:	
-	Test_Flap(const int argc, const char ** argv): Test_SteadyState(argc, argv) { }
+
+public:
+    InputStructVals inputStructVals;
+
+    Test_Flap(const int argc, const char ** argv): Test_SteadyState(argc, argv) { }
     
 	void run();
 	void setup();

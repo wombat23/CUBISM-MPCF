@@ -117,10 +117,11 @@ protected:
     Real pc1, pc2;
     
     bool bAwk;
-    
+
+//    template < typename SOURCETYPE> void _sourceAdd_omp(FluidGrid& grid, InputStructVals inputStructVals);
+
     Real _computeSOS(bool bAwk=false);
     Real _computeFLAP();
-    void _sourceAdd();
 
     ArgumentParser parser;
     Profiler * profiler;
@@ -142,8 +143,11 @@ public:
         smoothlength = (Real)(parser("-mollfactor").asInt())*sqrt(3.)*h;
         Simulation_Environment::EPSILON = smoothlength;
     }
-    
+
+
+
     Real operator()(const Real max_dt);
+    Real operator()(const Real max_dt, InputStructVals inputStructVals);
 
     void set_current_time(const Real _current_time) {current_time=_current_time;}
     
