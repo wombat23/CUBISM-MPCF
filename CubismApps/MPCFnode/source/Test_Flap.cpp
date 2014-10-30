@@ -64,11 +64,11 @@ void Test_Flap::_ic(FluidGrid& grid)
 															+ b(ix, iy, iz).w*b(ix, iy, iz).w)/b(ix, iy, iz).rho + b(ix, iy, iz).G*pInit;
                 
 	// artificial higher pressure in a small box
-	if (ix>.2 && ix<.3 && iy>.7 && iy<.8)
+	if (p[0]>.2 && p[0]<.3 && p[1]>.7 && p[1]<.8)
 		b(ix,iy,iz).energy += b(ix,iy,iz).G*pInit;
 
-	if (ix>.9 && iy<.8)
-		b(ix,iy,iz).rho = 1e7 * pInit / TInit / R_star;   
+	//if (p[0]>.9 && p[1]<.8)
+	//	b(ix,iy,iz).rho = 100 * pInit / TInit / R_star;   
 
 		}
         }		

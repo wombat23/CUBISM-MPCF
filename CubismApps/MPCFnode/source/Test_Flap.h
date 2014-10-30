@@ -51,20 +51,22 @@ protected:
 public:
 	BlockLabFlap(): BlockLab<BlockType,allocator>(){}
 	
-	void _apply_bc(const BlockInfo& info, const Real t=0)
-	{	
-        const Real dt = t-t_current;
+	void _apply_bc(const BlockInfo& info, const Real t)
+	{
+        /*
+	const Real dt = t-t_current;
         t_current = t;
 
         const Real pAvg = 1;
         const Real rAvg = 1;
         const Real uAvg = 0;
         const Real gamma = 1.4;
+	*/
 
         BoundaryCondition<BlockType,ElementTypeBlock,allocator> bc(this->m_stencilStart, this->m_stencilEnd, this->m_cacheBlock);
         
         if (info.index[0]==0)           bc.template applyBC_reflecting<0,0>();
-	if (info.index[0]==this->NX-1)  bc.template applyBC_reflecting<0,1>();
+	if (info.index[0]==this->NX-1)  bc.template applyBC_variable<0,1>(t);
 //if (info.index[0]==this->NX-1)  bc.template applyBC_flap_closed<0,1>();//bc.template applyBC_reflecting<0,1>();	
 //        if (info.index[0]==this->NX-1)  bc.template applyBC_flap<0,1>(pAvg,rAvg,uAvg,dt,gamma,phi,dphidt);
         if (info.index[1]==0)			bc.template applyBC_reflecting<1,0>();

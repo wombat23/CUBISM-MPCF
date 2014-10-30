@@ -232,7 +232,7 @@ public:
 	}
 
         template<int dir, int side>
-        void applyBC_flap_closed()
+        void applyBC_variable(Real t)
         {
                 _setup<dir,side>();
 
@@ -246,10 +246,9 @@ public:
 
            dir==2? (side==0? 0:TBlock::sizeZ-1):iz);
 
-					(*this)(ix,iy,iz).u = 0;
+					(*this)(ix,iy,iz).u *= (t<0.01)?(20000.*t*t-1.):1.;
                                 }
         }
-
 
     template<int dir, int side>
     void applyBC_flap(const Real pAvg, const Real rAvg, const Real uAvg, const Real dt, const Real gamma, Real & phi, Real & dphidt)
