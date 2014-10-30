@@ -245,8 +245,10 @@ public:
            dir==1? (side==0? 0:TBlock::sizeY-1):iy,
 
            dir==2? (side==0? 0:TBlock::sizeZ-1):iz);
+					Real start = 0.05;
+					Real end = start + 0.01;
 
-					(*this)(ix,iy,iz).u *= (t<0.01)?(20000.*t*t-1.):1.;
+					(*this)(ix,iy,iz).u *= (t<end && t>start)?(20000.*t*t-1.):(t<start?-1.:1.);
                                 }
         }
 
